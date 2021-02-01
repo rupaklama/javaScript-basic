@@ -22,8 +22,8 @@ const restaurant = {
 // It works almost the same as OR operator but it will fix an error on return value
 // restaurant.numGuests = 0;
 const guest = restaurant.numGuests ?? 10;
-console.log(guest); 
+console.log(guest);
 // ?? - nullish operator works with the concept of Nullish Value instead of falsey value
 // Nullish value are Null & Undefined, it does NOT include 0 & '' - empty string
-// The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand 
-// when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+// The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand
+// when its left-hand side operand is null or undefined

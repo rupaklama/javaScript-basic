@@ -22,7 +22,7 @@ const restaurant = {
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
 // using regular for loop is lots of work using forOf instead
-// get to access array elements directly
+// get to access array elements directly & also indexes with 'entries' method
 for (const item of menu) console.log(item);
 
 // NOTE: to access Indexes we have to do this by calling array method - entries
