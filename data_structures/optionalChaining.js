@@ -58,7 +58,7 @@ const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 for (const day of days) {
   // console.log(day);
-  // [day] - destructuring & ?? - to set default value
+  // [day] - destructuring & ?? - nullish operator to set default value
   const open = restaurant.openingHours[day]?.open ?? 'closed';
   console.log(`On ${day}, we open at ${open}`);
 }
