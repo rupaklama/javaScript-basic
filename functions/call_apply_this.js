@@ -21,7 +21,7 @@ console.log(lufthansa);
 
 // similar object
 const eurowings = {
-  name: 'Eurowings',
+  airline: 'Eurowings',
   iataCode: 'EW',
   bookings: [],
 };

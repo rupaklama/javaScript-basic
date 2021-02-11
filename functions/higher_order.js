@@ -21,3 +21,15 @@ const newGreet = greet2('Namaste');
 newGreet('friends');
 
 greet2('Hello')('Indira');
+
+// NOTE: This will not call 'book' function instead it will RETURN NEW FUNCTION
+// where 'this' keyword will always be set to 'eurowings' object, NOT to lufthansa object
+// Now, the 'book' method of other object is going to store values into this object
+// BASICALLY, bind creates a NEW Function for each object where its bound.
+const bookEW = book.bind(eurowings);
+bookEW(123, 'Rupak Lama');
+
+const bookLH = book.bind(lufthansa);
+bookLH(345, 'Indira Rai');
+
+// same as with Call method, we can pass multiple arguments in Bind method too
