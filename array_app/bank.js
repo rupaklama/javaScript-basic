@@ -69,12 +69,13 @@ const displayMovements = entries => {
     const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">
-      ${i + 1} ${type} </div>
+        ${i + 1} ${type}
+      </div>
      
       <div class="movements__value">${entry}</div>
     </div>`;
 
-    // 'insertAdjacentHTML' methods to ADD to the document which take TWO Arg Strings
+    // 'insertAdjacentHTML' methods to ADD above 'div' into the document which take TWO Arg Strings
     // first arg - position in which we want to attach the html, 'afterbegin': Just inside the element,
     // before its first child
     // second arg - string containing the HTML that we want to insert
@@ -83,6 +84,17 @@ const displayMovements = entries => {
 };
 
 displayMovements(account1.movements);
+
+// Display total balance
+const calculateDisplayBalance = entries => {
+  // accumulator & current element
+  const totalBalance = entries.reduce((acc, entry) => acc + entry, 0);
+
+  // displaying in the dom
+  labelBalance.textContent = `${totalBalance} EUR`;
+};
+
+calculateDisplayBalance(account1.movements);
 
 const createUsernames = users => {
   // performing SIDE EFFECTS here - doing some work without returning anything
@@ -97,4 +109,4 @@ const createUsernames = users => {
   });
 };
 createUsernames(accounts);
-console.log(accounts);
+// console.log(accounts);
