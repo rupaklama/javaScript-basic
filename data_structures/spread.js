@@ -23,16 +23,16 @@ const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
 
 // ES6 spread operator - creates a new array including arr array elements
-const newArr = [1, 2, ...arr];
+const newArr = [1, 2, ...arr]; // [1, 2, 7, 8, 9 ]
 console.log(newArr);
 
 // display all elements of an array but not the whole array like []
 // This is good coz we can access array elements directly & use in our code
-console.log(...newArr);
+console.log(...newArr); // 1 2 7 8 9 - spread operator unpacks inividual array elements
 
-//creating new menu
+// creating new menu array
 const newMenu = [...restaurant.mainMenu, 'Gnocci']
-console.log(...newMenu); // same as above accessing elements directly
+console.log(...newMenu); // ['Pizza', 'Pasta', 'Risotto', 'Gnocci']
 
 
 // NOTE: Two important use cases of spread operator which is to create 
@@ -42,7 +42,7 @@ console.log(...newMenu); // same as above accessing elements directly
 // shallow copy - a new object is created that has an exact copy of the values in the original object
 // Object is not copied, only the reference addresses/memory addresses are copied
 const mainMenuCopy = [...restaurant.mainMenu]
-console.log(mainMenuCopy);
+console.log(mainMenuCopy); // ['Pizza', 'Pasta', 'Risotto']
 
 // join two arrays or more
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
