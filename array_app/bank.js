@@ -72,7 +72,7 @@ const displayMovements = entries => {
         ${i + 1} ${type}
       </div>
      
-      <div class="movements__value">${entry}</div>
+      <div class="movements__value">${entry}€</div>
     </div>`;
 
     // 'insertAdjacentHTML' methods to ADD above 'div' into the document which take TWO Arg Strings
@@ -83,7 +83,7 @@ const displayMovements = entries => {
   });
 };
 
-displayMovements(account1.movements);
+// displayMovements(account1.movements);
 
 // Display total balance
 const calculateDisplayBalance = entries => {
@@ -91,10 +91,41 @@ const calculateDisplayBalance = entries => {
   const totalBalance = entries.reduce((acc, entry) => acc + entry, 0);
 
   // displaying in the dom
-  labelBalance.textContent = `${totalBalance} EUR`;
+  labelBalance.textContent = `${totalBalance} €`;
 };
+// calculateDisplayBalance(account1.movements);
 
-calculateDisplayBalance(account1.movements);
+// Display total income, expenses & interest
+const calculateDisplaySummary = entries => {
+  const totalIncome = entries
+    .filter(entry => entry > 0)
+    .reduce((acc, entry) => acc + entry, 0);
+
+  // display total income
+  labelSumIn.textContent = `${totalIncome}€`;
+
+  const totalExpenses = entries
+    .filter(entry => entry < 0)
+    .reduce((acc, entry) => acc + entry, 0);
+
+  // display total expenses
+  labelSumOut.textContent = `${Math.abs(totalExpenses)}€`;
+
+  // calculating total interests
+  // adding interest on each deposits, 1.2%
+  const addInterest = entries
+    .filter(entry => entry > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((interest, i, arr) => {
+      // console.log(arr);
+      return interest >= 1;
+    })
+    .reduce((acc, interest) => acc + interest, 0);
+
+  // display total interest
+  labelSumInterest.textContent = `${addInterest}€`;
+};
+calculateDisplaySummary(account1.movements);
 
 const createUsernames = users => {
   // performing SIDE EFFECTS here - doing some work without returning anything
@@ -110,3 +141,40 @@ const createUsernames = users => {
 };
 createUsernames(accounts);
 // console.log(accounts);
+
+// Event handlers to login
+let currentAccount;
+
+// Login user to display balances
+btnLogin.addEventListener('click', e => {
+  e.preventDefault();
+  // to login User, we need find user account from Accounts array
+  // to Find particular WHOLE Object on matching certain property
+  // usually the goal of Find method is to find exactly ONE ELEMENT
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  ); // input value
+  console.log(currentAccount);
+
+  // verify user to login
+  // With 'optional chaining' if certain property doesn't exists then UNDEFINED is return immediately to avoid errors
+  // ? - optional operator, only if 'user name' exists then 'pin' input value will be evaluated
+  // same as (currentAccount && currentAccount.pin)
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // display UI & welcome message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0] // first name
+    }!`;
+
+    containerApp.style.opacity = 1;
+
+    // display movements
+    displayMovements(currentAccount.movements);
+
+    // display balance
+    calculateDisplayBalance(currentAccount.movements);
+
+    // display summary
+    calculateDisplaySummary(currentAccount.movements);
+  }
+});
