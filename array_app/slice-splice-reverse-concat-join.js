@@ -24,7 +24,7 @@ console.log(arr.slice(1, -2)); // ["b", "c"]
 // The ONLY TIME you really need to use Slice method is When you want to CHAIN multiple methods together
 
 // SPLICE method - splice() method adds or removes items to an array, and returns the removed item(s) also
-// Note: This method works as the SLICE method but changes/mutate the ORIGINAL ARRAY
+// Note: This method works as same as the SLICE method but changes/mutate the ORIGINAL ARRAY
 
 // SYNTAX - array.splice(index, deleteCount, item1, ....., itemX)
 // index - Required. An integer that specifies at what position to add or remove items,

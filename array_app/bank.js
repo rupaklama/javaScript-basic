@@ -86,25 +86,27 @@ const displayMovements = entries => {
 // displayMovements(account1.movements);
 
 // Display total balance
-const calculateDisplayBalance = entries => {
+const calculateDisplayBalance = account => {
   // accumulator & current element
-  const totalBalance = entries.reduce((acc, entry) => acc + entry, 0);
+  const totalBalance = account.movements.reduce((acc, entry) => acc + entry, 0);
 
+  // creating 'balance' property to hold the balance value
+  account.balance = totalBalance;
   // displaying in the dom
-  labelBalance.textContent = `${totalBalance} €`;
+  labelBalance.textContent = `${account.balance} €`;
 };
 // calculateDisplayBalance(account1.movements);
 
 // Display total income, expenses & interest
-const calculateDisplaySummary = entries => {
-  const totalIncome = entries
+const calculateDisplaySummary = account => {
+  const totalIncome = account.movements
     .filter(entry => entry > 0)
     .reduce((acc, entry) => acc + entry, 0);
 
   // display total income
   labelSumIn.textContent = `${totalIncome}€`;
 
-  const totalExpenses = entries
+  const totalExpenses = account.movements
     .filter(entry => entry < 0)
     .reduce((acc, entry) => acc + entry, 0);
 
@@ -113,9 +115,9 @@ const calculateDisplaySummary = entries => {
 
   // calculating total interests
   // adding interest on each deposits, 1.2%
-  const addInterest = entries
+  const addInterest = account.movements
     .filter(entry => entry > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * account.interestRate) / 100)
     .filter((interest, i, arr) => {
       // console.log(arr);
       return interest >= 1;
@@ -125,7 +127,7 @@ const calculateDisplaySummary = entries => {
   // display total interest
   labelSumInterest.textContent = `${addInterest}€`;
 };
-calculateDisplaySummary(account1.movements);
+// calculateDisplaySummary(account1.movements);
 
 const createUsernames = users => {
   // performing SIDE EFFECTS here - doing some work without returning anything
@@ -142,13 +144,24 @@ const createUsernames = users => {
 createUsernames(accounts);
 // console.log(accounts);
 
+// to update all values
+const updateUI = account => {
+  // display movements
+  displayMovements(account.movements);
+
+  // display balance
+  calculateDisplayBalance(account);
+
+  // display summary
+  calculateDisplaySummary(account);
+};
 // Event handlers to login
 let currentAccount;
 
 // Login user to display balances
 btnLogin.addEventListener('click', e => {
   e.preventDefault();
-  // to login User, we need find user account from Accounts array
+  // to login User, we need find user acc from Accounts array
   // to Find particular WHOLE Object on matching certain property
   // usually the goal of Find method is to find exactly ONE ELEMENT
   currentAccount = accounts.find(
@@ -168,13 +181,96 @@ btnLogin.addEventListener('click', e => {
 
     containerApp.style.opacity = 1;
 
-    // display movements
-    displayMovements(currentAccount.movements);
+    // clear input fields
+    // inputLoginUsername.value = '';
+    // inputLoginPin.value = '';
 
-    // display balance
-    calculateDisplayBalance(currentAccount.movements);
+    // same as above
+    // value from the right of assignment '' will be pass to left operand
+    inputLoginUsername.value = inputLoginPin.value = '';
 
-    // display summary
-    calculateDisplaySummary(currentAccount.movements);
+    // to remove focus input field after login
+    // calling blur method to remove focus
+    inputLoginPin.blur();
+
+    updateUI(currentAccount);
   }
+});
+
+// transfer money
+btnTransfer.addEventListener('click', e => {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+
+  // to find user receiver to transfer money to
+  const receiverAccount = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  console.log(amount, receiverAccount);
+
+  // clearing out values
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (
+    amount > 0 &&
+    currentAccount.balance >= amount &&
+    receiverAccount &&
+    receiverAccount.username !== currentAccount.username
+  ) {
+    // transfer account - money out
+    currentAccount.movements.push(-amount); // negative value
+    // receiver account - money in
+    receiverAccount.movements.push(amount); // positive value
+  }
+
+  // update UI
+  updateUI(currentAccount);
+});
+
+// request loan
+btnLoan.addEventListener('click', e => {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    // some methods return a boolean value
+    // returns true if any of the elements in the array pass the test
+    // largest entry === 10 % of loan amount
+    currentAccount.movements.some(entry => entry >= amount * 0.1)
+  ) {
+    // add entry
+    currentAccount.movements.push(amount);
+
+    // update UI
+    updateUI(currentAccount);
+  }
+  // clearing out values
+  inputLoanAmount.value = '';
+});
+
+btnClose.addEventListener('click', e => {
+  e.preventDefault();
+
+  // validating user to be current user
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    // to find an index of current user object to delete
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+
+    // delete account
+    // In practice, we use Splice to delete one or more elements in an ORIGINAL ARRAY
+    // using splice method to delete current account
+    accounts.splice(index, 1); // removing one element in array
+
+    // hide ui
+    containerApp.style.opacity = 0;
+  }
+  // clearing out values
+  inputCloseUsername.value = inputClosePin.value = '';
 });
