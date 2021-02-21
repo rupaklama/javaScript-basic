@@ -8,6 +8,9 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 // The slice() method selects the elements starting at the given start argument,
 // and ends at before of second argument, but does not include, the given end argument.
 
+// If omitted, it acts like "0"
+console.log(arr.slice()); // ['a', 'b', 'c', 'd', 'e'];
+
 // start at index 2 & all the way to the end
 console.log(arr.slice(2)); // ["c", "d", "e"]
 

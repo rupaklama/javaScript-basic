@@ -58,11 +58,16 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 // transaction entries
-const displayMovements = entries => {
+const displayMovements = (entries, sort = false) => {
   // empty container to start with
   containerMovements.innerHTML = '';
 
-  entries.forEach((entry, i) => {
+  // sorting
+  // slice() - since we do not want to sort the original array / mutate data
+  // We are using Slice here NOT Spread operator because here we are in the MIDDLE of a CHAIN
+  const sortedEntries = sort ? entries.slice().sort((a, b) => a - b) : entries;
+
+  sortedEntries.forEach((entry, i) => {
     const type = entry > 0 ? 'deposit' : 'withdrawal';
 
     // html template
@@ -273,4 +278,42 @@ btnClose.addEventListener('click', e => {
   }
   // clearing out values
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+// bank total balance of all the users accounts
+// so, we need to take 'each object's array' & put it into New Array
+// Now, we have new array containing other arrays
+// const accountEntries = accounts.map(acc => acc.movements);
+
+// Now, we want just ONE array by adding both the arrays from above
+// const allEntries = accountEntries.flat();
+
+// bank total balance
+// const overallBalance = allEntries.reduce((acc, entry) => acc + entry, 0);
+
+// NOTE: same as above with CHAINing using flat()
+// const overallBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((accu, entry) => accu + entry, 0);
+
+// NOTE: When using flat() with MAP method, another method - flatMap() got introduced
+// at the same time which combines MAP & FLAT method into ONE method to BOOST performance
+// NOTE: same as above with CHAINing using flatMap()
+const overallBalance = accounts
+  .flatMap(acc => acc.movements) // same as map method
+  .reduce((accu, entry) => accu + entry, 0);
+
+// state variable
+let sorted = false;
+
+// sort entries
+btnSort.addEventListener('click', e => {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+
+  // flipping the value (true to false / false to true) on every time we click the button
+  sorted = !sorted;
+
+  // console.log(sorted);
 });
