@@ -77,7 +77,7 @@ const displayMovements = (entries, sort = false) => {
         ${i + 1} ${type}
       </div>
      
-      <div class="movements__value">${entry}€</div>
+      <div class="movements__value">${entry.toFixed(2)}€</div>
     </div>`;
 
     // 'insertAdjacentHTML' methods to ADD above 'div' into the document which take TWO Arg Strings
@@ -98,7 +98,7 @@ const calculateDisplayBalance = account => {
   // creating 'balance' property to hold the balance value
   account.balance = totalBalance;
   // displaying in the dom
-  labelBalance.textContent = `${account.balance} €`;
+  labelBalance.textContent = `${account.balance.toFixed(2)} €`;
 };
 // calculateDisplayBalance(account1.movements);
 
@@ -109,14 +109,14 @@ const calculateDisplaySummary = account => {
     .reduce((acc, entry) => acc + entry, 0);
 
   // display total income
-  labelSumIn.textContent = `${totalIncome}€`;
+  labelSumIn.textContent = `${totalIncome.toFixed(2)}€`;
 
   const totalExpenses = account.movements
     .filter(entry => entry < 0)
     .reduce((acc, entry) => acc + entry, 0);
 
   // display total expenses
-  labelSumOut.textContent = `${Math.abs(totalExpenses)}€`;
+  labelSumOut.textContent = `${Math.abs(totalExpenses).toFixed(2)}€`;
 
   // calculating total interests
   // adding interest on each deposits, 1.2%
@@ -130,7 +130,7 @@ const calculateDisplaySummary = account => {
     .reduce((acc, interest) => acc + interest, 0);
 
   // display total interest
-  labelSumInterest.textContent = `${addInterest}€`;
+  labelSumInterest.textContent = `${addInterest.toFixed(2)}€`;
 };
 // calculateDisplaySummary(account1.movements);
 
@@ -236,7 +236,9 @@ btnTransfer.addEventListener('click', e => {
 btnLoan.addEventListener('click', e => {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  // NOTE- Math.round() does type coercion itself,
+  // no need to convert to a number
+  const amount = Math.round(inputLoanAmount.value);
 
   if (
     amount > 0 &&
