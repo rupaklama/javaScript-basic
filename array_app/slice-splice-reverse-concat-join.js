@@ -7,6 +7,7 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 // The slice() method returns the selected elements in an array, as a new array object
 // The slice() method selects the elements starting at the given start argument,
 // and ends at before of second argument, but does not include, the given end argument.
+// Note: The original array will not be changed.
 
 // If omitted, it acts like "0"
 console.log(arr.slice()); // ['a', 'b', 'c', 'd', 'e'];
