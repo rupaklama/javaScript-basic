@@ -36,6 +36,15 @@ const pizzaTimer = setTimeout(
 // using the setTimeout Variable to clear the time out
 if (ingredients.includes('mushroom')) clearTimeout(pizzaTimer); // stop the execution
 
+// Another practical example
+const hello = setTimeout(() => {
+  console.log('Hello');
+}, 3000);
+
+// <button onclick="hello()">Try it</button> - To start
+
+// <button onclick="clearTimeout(hello)">Stop it</button> - To stop
+
 // SET INTERVAL METHOD
 // setInterval() method repeats a given function at every given time-interval
 // simply schedule to run a function after certain amount of time over and over again

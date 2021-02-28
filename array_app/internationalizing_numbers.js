@@ -9,20 +9,23 @@ const number = 123456.789;
 const options = {
   // there are 3 different styles - unit, percent & currency
   style: 'currency', // defining this is Unit
+
+  // NOTE: WE HAVE TO DECLARE CURRENCY BECAUSE IT'S NOT DETERMINED BY THE BROWSER's LOCALE
+  currency: 'USD',
+
   // NOTE  - if we have Percent & Currency, the unit below is completely ignored
   unit: 'mile-per-hour', //  setting Unit
-  currency: 'USD',
-  // NOTE: WE HAVE TO DECLARE CURRENCY BECAUSE IT'S NOT DETERMINED BY THE BROWSER's LOCALE
 
-  // we can also turn off or on grouping
+  // we can also turn off or on the 'grouping'
   // useGrouping: false, // to print numbers without the separators ','
 };
 
 // basic
 // NumberFormat()'s first arg - locale string
 // NumberFormat()'s second arg - option object
-// format method takes the number value
+// format method takes the number value that we want to format
 console.log('US:', new Intl.NumberFormat('en-US', options).format(number)); // $123,456.789
+
 console.log('Germany:', new Intl.NumberFormat('de-DE').format(number)); // 123.456,789
 console.log('Nepal:', new Intl.NumberFormat('nep-ne').format(number)); // 123,456.789
 console.log('Syria:', new Intl.NumberFormat('ar-SY').format(number)); // ١٢٣٬٤٥٦٫٧٨٩
@@ -30,6 +33,7 @@ console.log('Syria:', new Intl.NumberFormat('ar-SY').format(number)); // ١٢٣�
 // To use Browser's LOCALE
 console.log(
   'Browser:',
+  // navigator.language - give us default browser's locale
   new Intl.NumberFormat(navigator.language).format(number)
 );
 

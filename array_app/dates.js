@@ -72,6 +72,10 @@ console.log(new Date().getTime()); // 1614202134406 - timestamp
 // Get the time. ECMAScript 5.
 console.log(Date.now()); // 1614202340708
 
+// NOTE: To GET CURRENT LOCAL TIME
+const now = new Date();
+console.log(now.toLocaleTimeString()); // current local time
+
 console.log('----------------------------------------------');
 // NOTE: Operations With Dates
 // We can do CALCULATIONS with DATES like subtract one date from another date

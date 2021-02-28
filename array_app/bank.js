@@ -230,11 +230,14 @@ let currentAccount, timer;
 
 // logout timer
 const startLogoutTimer = () => {
+  // set time to 5 mins
+  let time = 300; // starting with 100 seconds = 1.40 mins
+
   const tick = () => {
     // Divide the number of seconds by 60 to convert seconds to minutes
-    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const min = String(Math.trunc(time / 60)).padStart(2, 0); // to add 0 at front 0:
 
-    // seconds
+    // Seconds will be the remainder of dividing time / 60 from above
     const sec = String(time % 60).padStart(2, 0);
 
     // in each call, print the remaining time to UI
@@ -254,9 +257,6 @@ const startLogoutTimer = () => {
     // time = time - 1;
     time--;
   };
-
-  // set time to 5 mins
-  let time = 60; // starting with 60 seconds
 
   // call the timer every seconds
   tick(); // now the timer gets call right away & every 1 sec

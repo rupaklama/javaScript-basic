@@ -13,16 +13,20 @@ const options = {
   minute: 'numeric',
   day: 'numeric',
   // On month - instead of number or another option is '2-digit'
-  month: 'long', // long returns February 27
+  month: 'long', // long returns month's name - February 27
   year: 'numeric', // or '2-digit'
 
   // On weekday, we can also experiment with 'short or narrow'
-  weekday: 'long', //  Saturday, February 27, 2021, 10:35 AM
+  weekday: 'long', //  name of the day - Saturday, February 27, 2021, 10:35 AM
 };
 
 // NOTE: IN MANY SITUATIONS, IT ACTUALLY DOES NOT MAKE SENSE TO DEFINE MANUALLY BUT
 // INSTEAD TO GET IT SIMPLY FROM THE USER BROWSERS
-// navigator.language - To get Current Browser's Locale (language)
+
+// In computing, a locale is a set of parameters that defines the user's language,
+// region and any special variant preferences that the user wants to see in their user interface.
+
+// navigator.language - To get Current Browser's Locale (en-US or others)
 const locale = navigator.language;
 console.log(locale); // en-US
 
