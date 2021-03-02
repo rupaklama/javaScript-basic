@@ -3,8 +3,7 @@
 // Selecting Elements
 
 // selecting top html element - document
-// documentElement - to select Entire Document of any WEB PAGE because
-// document is window object, not an html element
+// documentElement - to select Entire Document of any WEB PAGE because document is window object, not an html element
 // NOTE: In the window object, select ENTIRE WEB PAGE
 console.log(document.documentElement); // <html>...</html>, selects entire web page
 // NOTE: If we want to apply CSS for the entire page, we always need to select 'documentElement'

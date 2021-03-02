@@ -5,7 +5,7 @@
 // DOM createElement() Method
 // The createElement() method creates an Element Node with the specified name.
 // Tip: After the element is created,
-// use the element.appendChild() or element.insertBefore() method to insert it to the document.
+// use the append or prepend method to insert it to the document.
 const message = document.createElement('div'); // create div element
 
 // NOTE: now we can add classes to this new div element with classList property
@@ -20,6 +20,7 @@ message.textContent = 'We use cookies to improve functionality and analytics.';
 message.innerHTML =
   'We use cookies to improve functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
 
+// to select the header element
 const header = document.querySelector('.header');
 
 // Tip: After the element is created,

@@ -34,3 +34,15 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+// SMOOTH SCROLLING
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+// adding event listener
+btnScrollTo.addEventListener('click', e => {
+  // NEW - MODERN WAY & better way of doing same as above with passing OBJECT
+  // simply take an element we want to scroll to & on that
+  // we call 'scrollIntoView()' method & pass an object to specify behavior - smooth effect
+  section1.scrollIntoView({ behavior: 'smooth' }); // option object
+});
