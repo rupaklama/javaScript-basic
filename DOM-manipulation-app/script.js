@@ -152,3 +152,30 @@ tabsContainer.addEventListener('click', function (e) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
 });
+
+// Sticky Navigation with Intersection Observer API
+// The Intersection Observer API allows you to configure a callback that is called when either of these circumstances occur:
+// A target element intersects either the device's viewport or a specified element.
+
+const nav = document.querySelector('.nav');
+// NOTE - Intersection Observer API allows our code to basically observe changes to the way that
+// the certain target element intersects another element or the way it intersects the viewport
+
+// NOTE - when do we want our Navigation to become STICKY
+// we want it to be happen when the HEADER moves completely OUT of VIEW
+const header = document.querySelector('.header');
+
+const stickyNav = entries => {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null, // null - entire view port
+  threshold: 0, // when header out of view
+  rootMargin: '-90px', // 90px outside of header - height of nav bar
+});
+headerObserver.observe(header);
