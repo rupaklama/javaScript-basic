@@ -1,9 +1,6 @@
 // Sticky Navigation with Intersection Observer API
-// The Intersection Observer API allows you to configure a callback that is called when either of these circumstances occur:
-// A target element intersects either the device's viewport or a specified element.
-
-// NOTE - Intersection Observer API allows our code to basically observe changes to the way that
-// the certain target element intersects another element or the way it intersects the viewport
+// NOTE - The Intersection Observer API can be used to observe an element and run a callback function
+// when it enters or leaves the viewport (or another element).
 
 // observer callback
 const observerCallback = function (entries, observer) {

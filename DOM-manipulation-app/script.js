@@ -154,28 +154,69 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 // Sticky Navigation with Intersection Observer API
-// The Intersection Observer API allows you to configure a callback that is called when either of these circumstances occur:
-// A target element intersects either the device's viewport or a specified element.
-
+// NOTE - The Intersection Observer API can be used to observe an element and run a callback function
+// when it enters or leaves the viewport (or another element).
 const nav = document.querySelector('.nav');
-// NOTE - Intersection Observer API allows our code to basically observe changes to the way that
-// the certain target element intersects another element or the way it intersects the viewport
 
 // NOTE - when do we want our Navigation to become STICKY
 // we want it to be happen when the HEADER moves completely OUT of VIEW
-const header = document.querySelector('.header');
+const header = document.querySelector('.header'); // The element to observe
 
+// when the header leaves the viewport
 const stickyNav = entries => {
+  // With only one element being observed, the entries array will always contain just one item: '.nav' element
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
 
+  // Log if the element and if it's in the viewport
+  // console.log(entry.target); // header element
+  // console.log(entry.isIntersecting);
+
+  // Each entry includes a handful of properties.
+  // The isIntersecting property has a value of true if the element is in the viewport,
+  // and false when it’s not. The target property is the element itself
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
 };
 
+// To setup an Intersection Observer, use the new IntersectionObserver() constructor,
+// and pass in a callback function. The callback accepts two arguments: entries, an array
+// of the attached items that triggered the callback, and the Observer Object itself
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null, // null - entire view port
-  threshold: 0, // when header out of view
+  threshold: 0, // when header out of view - 0 %
   rootMargin: '-90px', // 90px outside of header - height of nav bar
 });
+// passing header element to the observer - target element
 headerObserver.observe(header);
+
+// Lazy Loading images using IntersectionObserver API
+// to optimize performance since images have biggest impact in page loading.
+// It's important to optimize images in any pages.
+
+// select an image element with data set attribute
+const images = document.querySelectorAll('img[data-src]');
+
+const loadImg = (entries, observer) => {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) return;
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px', // load 200px before when we reach them
+});
+
+images.forEach(img => imgObserver.observe(img));
