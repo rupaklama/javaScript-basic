@@ -199,7 +199,7 @@ const images = document.querySelectorAll('img[data-src]');
 
 const loadImg = (entries, observer) => {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
 
   if (!entry.isIntersecting) return;
 
@@ -220,3 +220,68 @@ const imgObserver = new IntersectionObserver(loadImg, {
 });
 
 images.forEach(img => imgObserver.observe(img));
+
+// Slider components
+const slides = document.querySelectorAll('.slide');
+
+// current slide position
+let currentSlide = 0;
+
+// defining number of slides to loop over
+const maxSlides = slides.length;
+
+// putting all the slides - side by side
+// first slide should be at 0%
+// second slide should be at 100%
+// third slide should be at 200%
+// fourth slide should be at 300%
+// NOTE - the width of each images is 100% then the second image & so on... have a same width
+slides.forEach(
+  (slide, i) => (slide.style.transform = `translateX(${100 * i}%)`)
+);
+// multiply 100 % by current index - in the start, the first index is 0 so 0 times 100 is 0
+// On the second index, it's going to be 100 since on index 1 and so on...
+
+// const slider = document.querySelector('.slider');
+// slider.style.transform = 'scale(0.3) translateX(-1500px)';
+// slider.style.overflow = 'visible';
+
+// buttons
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+
+// slide move to right - next slide
+btnRight.addEventListener('click', function () {
+  if (currentSlide === maxSlides - 1) {
+    // -1 is to make first slide to 0 index
+    // when we reach at the end, go back to first slide
+    currentSlide = 0;
+  } else {
+    currentSlide++;
+  }
+
+  // -100%, 0%, 100%, 200% - current slide to be 0% and first slide to be -100%
+  // we do this by taking current index minus current slide
+  slides.forEach(
+    (slide, i) =>
+      (slide.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+  );
+});
+
+// slide move to left - previous slide
+btnLeft.addEventListener('click', function () {
+  if (currentSlide === 0) {
+    // -1 is to make first slide to 0 index
+    // when we reach at the end, go back to first slide
+    currentSlide = maxSlides - 1;
+  } else {
+    currentSlide--;
+  }
+
+  // -100%, 0%, 100%, 200% - current slide to be 0% and first slide to be -100%
+  // we do this by taking current index minus current slide
+  slides.forEach(
+    (slide, i) =>
+      (slide.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+  );
+});
