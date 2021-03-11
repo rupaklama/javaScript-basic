@@ -285,3 +285,32 @@ btnLeft.addEventListener('click', function () {
       (slide.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
   );
 });
+
+// LIFECYCLE DOM EVENTS
+// 1. DOM Content Loaded - This event is fired by the Document as soon as the HTML is completely parsed.
+// which means that the HTML has been downloaded and been converted to DOM tree. Also, all Scripts must be
+// downloaded and executed before DOM Content Loaded can occurred.
+// Note - This event does not wait for images & other external resources to load,
+// just HTML and JavaScript needs to be loaded.
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('HTML parsed and DOM tree built', e);
+});
+// NOTE - when we have <script>tag at the end of the HTML then we do not need to listen - DOM Content Loaded
+
+// 2. LOAD Event - This event is fired by the Window as soon as not only the HTML & javascript
+// is parsed but also all the images and external resources like css files are loaded,
+// after loading file completely
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// 3. Before Unload Event - Finally, the last EVENT is Before Unload Event which also gets fired on window
+// This event is created immediately before user is about to leave a page - closing close button in browser tab
+window.addEventListener('beforeunload', function (e) {
+  // we can ask user to make sure they want to leave the page
+  e.preventDefault(); // some browsers need this
+
+  console.log(e);
+  // to display leaving confirmation we need to set the return value on the event to empty string
+  e.returnValue = '';
+});
