@@ -25,20 +25,21 @@ const airline = 'Tap Air Portugal';
 const plane = 'A320';
 
 // just like an array, we can get string in certain position
-console.log(plane[0]);
+console.log(plane[0]); // "A"
 // Other way
-console.log('NEP73'[0]);
+console.log('NEP73'[0]); // "N"
 
 // Length property of string
-console.log(airline.length);
+console.log(airline.length); // 16
 
 // NOTE: Strings also have methods like an array
 // some of them are quite similar to an array methods
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('r')); // 6
+console.log(airline.lastIndexOf('r')); // 10
 
-// case sensitive, -1 is not found in string
-console.log(airline.indexOf('portugal'));
+// All characters are case sensitive in strings
+// This will return -1 since 'portugal' is not found in string
+console.log(airline.indexOf('portugal')); // -1
 
 // NOTE: The slice() method extracts a section of a string and returns it as a new string,
 // without modifying the original string. String is Primitive so we can't mutate it.
@@ -48,18 +49,19 @@ console.log(airline.indexOf('portugal'));
 
 // If pass only ONE arg, it's a begin/start parameter
 // The result is known as sub-string because it just part of original string
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7)); // start & end parameter
+console.log(airline.slice(4)); // "Air Portugal"
+// start & end parameter
+console.log(airline.slice(4, 7)); // "Air"
 
 // NOTE: alternate way for putting values directly with indexOf
 // extracting the first word by searching space
-console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(0, airline.indexOf(' '))); // "Tap"
 // extracting the last word by searching space
-console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // + 1 to remove space
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // + 1 to remove space - "Portugal"
 
 // extracting from the end
-console.log(airline.slice(-2)); // last two letters
-console.log(airline.slice(1, -1)); // start at index 1, cut off last word of the end of string
+console.log(airline.slice(-2)); // last two letters - "al"
+console.log(airline.slice(1, -1)); // start at index 1, cut off last word of the end of string - "ap Air Portuga"
 
 // function that gets air plane sits as arg &
 // logs to the console whether it is middle seat or not
