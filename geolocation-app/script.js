@@ -86,8 +86,6 @@ const inputElevation = document.querySelector('.form__input--elevation');
 // successCallback - will be call on whenever a browser successfully gets the co-ordinates of current position
 // errorCallback - will be call on when occurring an error or failing when getting the co-ordinates
 
-let map, mapEvent;
-
 // NOTE
 // 1. Classes are NOT HOISTED
 // 2. Classes are first-class citizens - we can pass them into functions & also return it from functions
@@ -124,25 +122,32 @@ class App {
   #workouts = [];
 
   constructor() {
+    // note- this constructor gets call immediately when the new object is created
     // the constructor gets executed/call on the initial page load
+
     // Get user's position
     this._getPosition();
 
     // Get data from local storage
     this._getLocalStorage();
 
-    // Attach event handlers
+    // Attach event handlers to get executed/call on the initial page load
+    // 'this' always refers to the DOM element in the Event Handler Methods,
+    // to fix it using 'bind(this)' to refer to the Object
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
+  // In order to actually trigger the geo-location api,
+  // this method needs to be call inside of the constructor
   _getPosition() {
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(
-        // On calling 'this._loadMap', it will be call as Regular Function call
+        // On calling 'this._loadMap', it will be call as Regular Function Call by getCurrentPosition
+        // but not as a Class Method.
         // In regular function call, this is set to 'undefined',
-        // the solution is to manually bind 'bind(this)' keyword
+        // the solution is to manually bind 'bind(this)' keyword to point to the Current Object
         this._loadMap.bind(this),
         function () {
           alert('Could not get your position');
@@ -165,6 +170,7 @@ class App {
     }).addTo(this.#map);
 
     // Handling clicks on map
+    // note - 'this' points to the map object not to our App Object, need binding
     this.#map.on('click', this._showForm.bind(this));
 
     this.#workouts.forEach(work => {
@@ -367,7 +373,12 @@ class App {
   }
 }
 
+// creating an instance of a class
 const app = new App();
+
+// to actually trigger the geo-location api
+//  app._getPosition();
+// Note - It's lot cleaner to call this method inside of the Constructor of a class
 
 // just to make sure we don't get errors in old browsers
 // if (navigator.geolocation) {
