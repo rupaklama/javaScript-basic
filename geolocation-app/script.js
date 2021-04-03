@@ -1,7 +1,10 @@
 'use strict';
 
 class Workout {
+  // new modern syntax for class fields
   date = new Date();
+  // to generate unique id using data object
+  // converting into string & slice to use last 10 numbers
   id = (Date.now() + '').slice(-10);
   clicks = 0;
 
@@ -27,6 +30,7 @@ class Workout {
   }
 }
 
+// Child classes
 class Running extends Workout {
   type = 'running';
 
