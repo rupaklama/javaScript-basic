@@ -24,6 +24,12 @@ const renderCountry = (data, className = '') => {
   countriesContainer.insertAdjacentHTML('beforeend', html);
 
   // to display the data
+  // countriesContainer.style.opacity = 1;
+};
+
+// to render error
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
   countriesContainer.style.opacity = 1;
 };
 
@@ -32,23 +38,54 @@ const renderCountry = (data, className = '') => {
 // const request = fetch('https://restcountries.eu/rest/v2/name/nepal');
 // console.log(request); // promise
 
+// Creating reusable function to avoid DRY
+const getJSON = function (url, errMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) {
+      throw new Error(`${errMsg} (${response.status})`);
+    }
+    return response.json();
+  });
+};
+
 const getCountryData = function (country) {
-  // country 1
-  // fetch api returns a Promise - response object from ajax call
-  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-    // On all Promises, we can call 'then' method to handle/consume Promise
-    // Into the 'then' method, need to pass a callback function to execute as soon as Promise is Fulfilled/resolved
-    // Converting Response Body Object into JSON to access & read the data
-    // JSON() method is available in all the RESPONSE Objects - Promise
-    .then(response => response.json()) // 'response' is promise object
+  // calling above reusable function
+  getJSON(
+    `https://restcountries.eu/rest/v2/name/${country}`,
+    'Country not found'
+  )
+    // country 1
+    // fetch api returns a Promise - response object from ajax call
+    // fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+    //   // On all Promises, we can call 'then' method to handle/consume Promise
+    //   // Into the 'then' method, need to pass a callback function to execute as soon as Promise is Fulfilled/resolved
+    //   // Converting Response Body Object into JSON to access & read the data
+    //   // JSON() method is available in all the RESPONSE Objects - Promise
+    //   .then(response => {
+    //     console.log(response);
+
+    //     // manually rejecting promise to handle error
+    //     // Overriding default Error Object's - 'err.message' that don't make sense or not too clear
+    //     if (!response.ok) {
+    //       // false
+    //       throw new Error(`Country not found (${response.status})`);
+    //     }
+
+    //     return response.json(); // 'response' is promise object
+
+    //     // note - option 1 to handle Errors, not a good way
+    //     // err => alert(err) // second callback when promise gets rejected
+    //   })
     // JSON() method is Async which also returns a New Promise Object
     .then(data => {
       console.log(data);
       renderCountry(data[0]);
 
       const neighbor = data[0].borders[0];
+      // const neighbor = 'adfdfdddf';
 
-      if (!neighbor) return;
+      if (!neighbor) throw new Error('No neighbor found!');
+
       // another ajax call
       // country 2
       return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbor}`);
@@ -56,11 +93,44 @@ const getCountryData = function (country) {
       // Nested Callback inside of Another one
     })
     // Note - Always return promise and handle it outside by continuing chain like below
-    .then(response => response.json())
-    .then(data => renderCountry(data, 'neighbour'));
+    .then(response => {
+      console.log(response);
+
+      // manually rejecting promise to handle error
+      // Overriding default Error Object's - 'err.message' that don't make sense or not too clear
+      if (!response.ok) {
+        // false
+        throw new Error(`Country not found (${response.status})`);
+      }
+
+      return response.json();
+    })
+    .then(data => renderCountry(data, 'neighbour'))
+    // we can handle/catch Errors at the end of the Chain - right way
+    // It will catch any errors on all of the above Promise Chain
+    .catch(err => {
+      console.error(err.message);
+      renderError(`Something went wrong - ${err.message} Try again`);
+      // Note - err.message will be our custom message from above
+    })
+
+    // The last one - Finally Method, an optional one
+    // The finally() is always executed whether the promise is fulfilled or rejected.
+    // In other words, the finally() is executed when the promise is settled.
+    // The finally() method was introduced in ES2018. In the finally() method,
+    // you can place the code that cleans up the resource when the promise is settled,
+    // regardless of its outcome. We use this method for something that always need to happen
+    // no matter the result of Promise like hiding Loading Spinner or clean up process.
+    .finally(() => {
+      // to display the data or Error message after Promise settled
+      countriesContainer.style.opacity = 1;
+    });
 };
 
-getCountryData('nepal');
+// button to make above api request
+btn.addEventListener('click', function () {
+  getCountryData('australia');
+});
 
 // // function to fetch country data
 // const getCountryData = function (country) {
