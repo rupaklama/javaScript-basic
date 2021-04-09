@@ -199,3 +199,56 @@ btn.addEventListener('click', function () {
 //     }, 1000);
 //   }, 1000);
 // }, 1000);
+
+// EVENT LOOP in Practice
+// console.log('Test Start'); // 1
+// setTimeout(() => console.log('0 sec timer'), 0); // 4
+// // This is a Micro task which has more priority than above callback function
+// Promise.resolve('Resolved promise 1').then(res => console.log(res)); // 3
+// console.log('Test end'); // 2
+
+// Building a Simple Promise
+// The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+// Creating Promise with built in Constructor Object - Promise is a special Object
+const lotteryPromise = new Promise(function (resolve, reject) {
+  // storing new promise in a variable
+  // takes one arg - executor function
+  // The Executor Function takes Resolve & Reject Functions as args
+
+  console.log('Lottery draw begins!');
+
+  // async operation
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      // the result of above condition is fulfilled promise
+      // In order to set Promise as Fulfilled, we use 'resolve()' function
+      // Basically, calling the 'resolve' func like this, will mark this Promise as a resolved/fulfilled promise
+      // Note - Into the resolve func here, we pass in the fulfilled value of the promise
+      // so that it can later consumed with 'then' method to handle the promise
+      resolve('You win!');
+    } else {
+      // opposite case - rejected promise
+      // rejected: meaning that the operation failed.
+      // When a Promise object is "rejected", the result is an error object
+      reject(new Error('You lost your money :(')); // creating our custom new error object
+    }
+  }, 2000);
+});
+
+// consuming above promise with 'then' method
+// 'then' method needs a callback function which is going to be call with resolved/rejected value of promise
+lotteryPromise
+  .then(res => {
+    console.log(res);
+  })
+  .catch(err => console.error(err));
+
+// A Promise is in one of these states:
+// pending: initial state, neither fulfilled nor rejected.
+// While a Promise object is "pending" (working), the result is undefined.
+
+// fulfilled: meaning that the operation was completed successfully.
+// When a Promise object is "fulfilled", the result is a value.
+
+// rejected: meaning that the operation failed.
+// When a Promise object is "rejected", the result is an error object
