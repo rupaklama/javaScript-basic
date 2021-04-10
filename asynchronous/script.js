@@ -78,8 +78,9 @@ const getCountryData = function (country) {
     //   })
     // JSON() method is Async which also returns a New Promise Object
     .then(data => {
-      console.log(data);
+      console.log(data); // array of objects
       renderCountry(data[0]);
+      console.log(data[0]); // first object in an array
 
       const neighbor = data[0].borders[0];
       // const neighbor = 'adfdfdddf';
@@ -210,38 +211,38 @@ btn.addEventListener('click', function () {
 // Building a Simple Promise
 // The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 // Creating Promise with built in Constructor Object - Promise is a special Object
-const lotteryPromise = new Promise(function (resolve, reject) {
-  // storing new promise in a variable
-  // takes one arg - executor function
-  // The Executor Function takes Resolve & Reject Functions as args
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   // storing new promise in a variable
+//   // takes one arg - executor function
+//   // The Executor Function takes Resolve & Reject Functions as args
 
-  console.log('Lottery draw begins!');
+//   console.log('Lottery draw begins!');
 
-  // async operation
-  setTimeout(function () {
-    if (Math.random() >= 0.5) {
-      // the result of above condition is fulfilled promise
-      // In order to set Promise as Fulfilled, we use 'resolve()' function
-      // Basically, calling the 'resolve' func like this, will mark this Promise as a resolved/fulfilled promise
-      // Note - Into the resolve func here, we pass in the fulfilled value of the promise
-      // so that it can later consumed with 'then' method to handle the promise
-      resolve('You win!');
-    } else {
-      // opposite case - rejected promise
-      // rejected: meaning that the operation failed.
-      // When a Promise object is "rejected", the result is an error object
-      reject(new Error('You lost your money :(')); // creating our custom new error object
-    }
-  }, 2000);
-});
+//   // async operation
+//   setTimeout(function () {
+//     if (Math.random() >= 0.5) {
+//       // the result of above condition is fulfilled promise
+//       // In order to set Promise as Fulfilled, we use 'resolve()' function
+//       // Basically, calling the 'resolve' func like this, will mark this Promise as a resolved/fulfilled promise
+//       // Note - Into the resolve func here, we pass in the fulfilled value of the promise
+//       // so that it can later consumed with 'then' method to handle the promise
+//       resolve('You win!');
+//     } else {
+//       // opposite case - rejected promise
+//       // rejected: meaning that the operation failed.
+//       // When a Promise object is "rejected", the result is an error object
+//       reject(new Error('You lost your money :(')); // creating our custom new error object
+//     }
+//   }, 2000);
+// });
 
-// consuming above promise with 'then' method
-// 'then' method needs a callback function which is going to be call with resolved/rejected value of promise
-lotteryPromise
-  .then(res => {
-    console.log(res);
-  })
-  .catch(err => console.error(err));
+// // consuming above promise with 'then' method
+// // 'then' method needs a callback function which is going to be call with resolved/rejected value of promise
+// lotteryPromise
+//   .then(res => {
+//     console.log(res);
+//   })
+//   .catch(err => console.error(err));
 
 // A Promise is in one of these states:
 // pending: initial state, neither fulfilled nor rejected.
@@ -252,3 +253,40 @@ lotteryPromise
 
 // rejected: meaning that the operation failed.
 // When a Promise object is "rejected", the result is an error object
+
+// ES 2017 - ASYNC/AWAIT
+// note - we have to make this function asynchronous by adding 'async' before the function
+// NOTE - since the function is running asynchronously in the background,
+// it's not blocking the main thread of execution - call stack
+const whereAmI = async function (country) {
+  // try/catch is actually use in regular javascript as well
+  // So, its been in the language sine from the beginning, so not part of async/await syntax
+  try {
+    // add 'await' before anything which returns Promise object
+    // the await stops execution of a function until the Promise is fulfilled - data is fetched
+    // Storing the Resolved Value in a variable - response
+    const response = await fetch(
+      `https://restcountries.eu/rest/v2/name/${country}`
+    );
+
+    // we need to call JSON() on the Response Object to access and read it
+    // we need to await again, since JSON() returns a new promise
+    // To store a new promise in a variable
+    const data = await response.json();
+    console.log(data);
+    renderCountry(data[0]); // first object in an array
+
+    // NOTE - async/await is Syntactic Sugar over to old way of doing with 'then' method
+    // More cleaner & concise syntax
+  } catch (err) {
+    // catch block to handle errors
+    console.error(err);
+    renderError(`Something went wrong, ${err.message} :( `);
+  }
+};
+
+whereAmI('nepal');
+
+// just to proof above function is async,
+// this outside scope will be executed first
+console.log('FIRST');
