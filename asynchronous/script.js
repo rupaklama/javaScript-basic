@@ -284,9 +284,59 @@ const whereAmI = async function (country) {
     renderError(`Something went wrong, ${err.message} :( `);
   }
 };
-
+// The outer scope gets executed while our async function is running in background - since it takes time finish
+console.log('1: Will get location');
 whereAmI('nepal');
 
 // just to proof above function is async,
 // this outside scope will be executed first
-console.log('FIRST');
+console.log('3: Finished getting location');
+
+// NOTE - Promise.all Combinator func is to make multiple api requests at the same time
+// boost loading time since making all api requests at the same time
+// const data = await Promise.all([fetch1(), fetch(2), fetch(3)])
+
+// note - If one of the Promises reject then the whole Promises reject as well
+// we say that Promise.all short-circuits when One Promise rejects
+
+// note - Whenever we have a situation in which we need to do Multiple Async Operations at the same time
+// & all these operations DON'T depend on one another. Then, we should always run them in PARALLEL.
+// It is known as Combinator func since it allows us to combine multiple promises
+
+// NOTE - The three Other Promise Combinators - race, allSettled & any
+
+// 1. Promise.race - Receives an Array of Promises just like any Combinators.
+// It also returns a Promise which is settled as soon as ONE of the input promises is fulfilled or rejected
+// Basically, the first Settled Promise wins the race.
+// IFFI func
+(async function () {
+  const res = await Promise.race([
+    // all of these Promises race against one another in like real race
+    // which ever gets fulfilled first wins the race
+    getJSON(`https://restcountries.eu/rest/v2/name/nepal`),
+    getJSON(`https://restcountries.eu/rest/v2/name/bhutan`),
+    getJSON(`https://restcountries.eu/rest/v2/name/pakistan`),
+  ]);
+  // Depends on the network call - faster api call might show first
+  console.log(res[0]);
+})();
+// NOTE - It's very useful in very long or never ending promises
+
+// 2. Promise.allSettled - ES 2020, a new one
+// It takes an array of promises and simply return an Array of all Settled promises,
+// no matter if the promises get rejected or not.
+// Similar to Promise.all but difference is Promise.allSettled never Short-Circuits
+// meaning it will simply return all the results of all the Promises.
+Promise.allSettled([
+  Promise.resolve('Success'),
+  Promise.reject('ERROR'),
+  Promise.resolve('Another Success'),
+]).then(res => console.log(res));
+
+// 3. Promise.any - ES 2021, returns First Fulfilled promise & simply Ignore Rejected promises
+// similar to Promise.race but rejected promises are ignored
+Promise.any([
+  // Promise.resolve('Success'),
+  Promise.reject('ERROR'),
+  Promise.resolve('Another Success'),
+]).then(res => console.log(res));
