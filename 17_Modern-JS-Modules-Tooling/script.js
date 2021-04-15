@@ -31,3 +31,16 @@ add('apples', 4);
 console.log(cart);
 
 // NOTE - Try not to mix NAMED & DEFAULT EXPORT together to avoid complexity
+
+// COMMONJS MODULES - THIS WORKS IN THE NODE ENVIRONMENT
+// Just like in es6 module, One file is One module in Commonjs module also
+
+// Import
+// const { addToCart } = require('./shoppingCart')
+
+// Export
+// This 'export' keyword is basically an Object.
+// export.addToCart = function (product, quantity) {
+//   cart.push({ product, quantity }); // adding object to an array
+//   console.log(`${quantity} ${product} added to the cart`);
+// };
