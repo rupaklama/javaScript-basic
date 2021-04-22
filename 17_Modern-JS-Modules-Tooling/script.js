@@ -1,3 +1,13 @@
+import cloneDeep from 'lodash';
+
+// hot module replacement
+// hot module reloading means is whenever we change our modules,
+// it will trigger a rebuid & this new modified bundler will then automatically
+// get injected into the browser without triggering the whole page reload.
+if (module.hot) {
+  module.hot.accept();
+}
+
 // importing module
 // we can also change the name of the Imported value as well with 'as'
 // import { addToCart, totalPrice as price, tq } from './shoppingCart.js';

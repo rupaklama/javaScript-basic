@@ -1,5 +1,7 @@
 'use strict';
 
+import cloneDeep from './node_modules/lodash-es/cloneDeep';
+
 class Workout {
   // new modern syntax for class fields
   date = new Date();

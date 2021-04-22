@@ -1,0 +1,25 @@
+require('lodash');
+var _shoppingCartJs = require('./shoppingCart.js');
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _shoppingCartJsDefault = _parcelHelpers.interopDefault(_shoppingCartJs);
+// hot module replacement
+// hot module reloading means is whenever we change our modules,
+// it will trigger a rebuid & this new modified bundler will then automatically
+// get injected into the browser without triggering the whole page reload.
+if (module.hot) {
+  module.hot.accept();
+}
+// importing module
+// we can also change the name of the Imported value as well with 'as'
+// import { addToCart, totalPrice as price, tq } from './shoppingCart.js';
+// exported function
+// addToCart('breads', 5);
+// logging multiple Named Export values
+// console.log(price, tq);
+// above imported module code gets executed first before this module
+console.log('Importing module');
+_shoppingCartJsDefault.default('pizzas', 2);
+_shoppingCartJsDefault.default('breads', 5);
+_shoppingCartJsDefault.default('apples', 4);
+// Accessing same Cart array in memory when accessing here
+console.log(_shoppingCartJs.cart);
