@@ -33,11 +33,21 @@ const restaurant = {
   },
 };
 
-// We can also loop over OBJECTS which are not iterables but in an indirect way.
-// Looping over property names which are KEY.
-const properties = Object.keys(openingHours);
-console.log(`We are open ${properties.length} days`);
+// We can also loop over Objects in a non-direct way
 
-for (const day of properties) {
-  console.log(day);
-}
+// Looping over property names with are KEYS - returns a New Array
+const properties = Object.keys(openingHours);
+console.log(`We are open on ${properties.length} days`);
+
+properties.forEach(day => console.log(day));
+
+// property values - returns a New Array
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object - returns a New Array with Key/Value
+const entries = Object.entries(openingHours);
+console.log(entries); // ["thu", {…}]
+entries.forEach((
+  [key, { open, close }] // array/object destructuring
+) => console.log(`On ${key} we open at ${open} and close at ${close}!`));
