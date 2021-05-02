@@ -33,6 +33,8 @@ const restaurant = {
   },
 };
 
+// A Map is a collection of key🔑 — value pairs, similar to an object.
+// It stores the key🔑 — value pairs in the insertion order
 // Map is a data structure we can use to map values to keys.
 // Just like in Object, data is store in key/value pairs
 // Difference between Object & Map is in Map keys can have ANY TYPES
