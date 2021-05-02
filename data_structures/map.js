@@ -41,6 +41,44 @@ const restaurant = {
 // In Object keys are always Strings, in Map we can have any Types - object, arrays...
 
 const rest = new Map();
-rest.set('name', 'Himalayan'); // key/value
-rest.set(1, 'Santa Rosa');
-console.log(rest.set(2, 'New York')); // returns updated map
+
+// set method - to add new element
+rest.set('name', 'Cassico Italino');
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Kathmandu, Nepal');
+
+// chaining 'set' methods
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 9)
+  .set(true, 'we are open :D')
+  .set(false, 'we are closed :(');
+
+// get method - to read data from a map
+console.log(rest.get('name')); // Cassico Italino
+console.log(rest.get(true)); // we are open :D
+
+// getting string based on the time
+const time = 9;
+// return boolean - false
+console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); // we are closed :(
+
+// has method
+console.log(rest.has('categories')); // true
+
+// delete method
+rest.delete(2);
+// console.log(rest);
+
+// size property
+// console.log(rest.size); // 7
+
+// clear method - to clear all elements
+// rest.clear();
+console.log(rest);
+
+// using arrays & objects as Map's keys
+rest.set([1, 2], 'Test');
+console.log(rest.size);
+
