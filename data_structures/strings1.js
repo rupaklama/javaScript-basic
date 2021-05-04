@@ -50,8 +50,12 @@ console.log(airline.indexOf('portugal')); // -1
 
 // If pass only ONE arg, it's a begin/start parameter
 // The result is known as sub-string because it just part of original string
+
+// const airline = 'TAP Air Portugal';
+// Air Portugal - starts on the same letter which is a begin parameter
 console.log(airline.slice(4)); // "Air Portugal"
 // start & end parameter
+// end value is not included in the string, stops extracting before reaching number 7
 console.log(airline.slice(4, 7)); // "Air"
 
 // NOTE: alternate way for putting values directly with indexOf
