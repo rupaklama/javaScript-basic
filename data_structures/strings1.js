@@ -63,6 +63,7 @@ console.log(airline.slice(4, 7)); // "Air"
 console.log(airline.slice(0, airline.indexOf(' '))); // TAP until first white space
 
 // extracting the last word by searching space
+// last white space as a begin parameter
 console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // + 1 to remove space - "Portugal"
 
 // extracting from the end
