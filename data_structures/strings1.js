@@ -67,6 +67,7 @@ console.log(airline.slice(0, airline.indexOf(' '))); // TAP until first white sp
 console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // + 1 to remove space - "Portugal"
 
 // extracting from the end
+// const airline = 'TAP Air Portugal';
 console.log(airline.slice(-2)); // last two letters - "al"
 console.log(airline.slice(1, -1)); // start at index 1, cut off last word of the end of string - "ap Air Portuga"
 
