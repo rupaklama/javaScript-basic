@@ -37,6 +37,7 @@ console.log(airline.length); // 16
 console.log(airline.indexOf('r')); // 6
 console.log(airline.lastIndexOf('r')); // 10
 
+// NOTE - WHOLE WORD
 // All characters are case sensitive in strings
 // This will return -1 since 'portugal' is not found in string
 console.log(airline.indexOf('portugal')); // -1
