@@ -60,7 +60,8 @@ console.log(airline.slice(4, 7)); // "Air"
 
 // NOTE: alternate way for putting values directly with indexOf
 // extracting the first word by searching space
-console.log(airline.slice(0, airline.indexOf(' '))); // "Tap"
+console.log(airline.slice(0, airline.indexOf(' '))); // TAP until first white space
+
 // extracting the last word by searching space
 console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // + 1 to remove space - "Portugal"
 
