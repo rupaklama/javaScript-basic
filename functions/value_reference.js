@@ -53,8 +53,14 @@ const checkIn = (flightNum, passenger) => {
 };
 
 // checkIn(flight, rupak);
-// console.log(flight); // variable
-// console.log(rupak); // object
+
+// PRIMITIVES ARE NOT MUTABLE
+// when you change the Primitive Value stored in variable, the value of the original variable doesn’t change.
+console.log(flight);
+
+// OBJECTS ARE MUTABLE
+// Unlike a primitive value, when you manipulate an object, the value of the original object does change
+console.log(rupak); // object
 
 // Avoid object mutation
 const newPassport = person => {
