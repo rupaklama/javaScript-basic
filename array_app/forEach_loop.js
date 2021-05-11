@@ -57,7 +57,7 @@ currencies.forEach((value, key) => {
 const currenciesUnique = new Set(['USD', 'GBP', 'RS', 'EURO', 'USD']);
 console.log(currenciesUnique); // {"USD", "GBP", "RS", "EURO"}
 currenciesUnique.forEach((value, _) => {
-  // _ is throw away variable, variable that is NOT NEEDED
+  // _ is throw away variable, variable that is NOT NEEDED since SET does not have keys/indexes
   console.log(`${value}: ${value}`); // USD: USD
   // On console log, key is exactly the same as value because SET doesn't have keys & indexes either
 });
