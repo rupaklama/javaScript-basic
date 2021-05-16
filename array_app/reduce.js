@@ -39,12 +39,14 @@ console.log(totalBalance); // 3840
 // note - We can also do other Stuffs besides Adding values
 // finding maximum value '3000' in an array
 const maxValue = movements.reduce((acc, curr) => {
+  // accumulator will keep track of current Maximum Value in an array
   if (acc > curr) {
     // In the Reduce method, we always have to return the Accumulator to the next Iteration
     return acc; // with the max value stored
   } else {
     return curr;
   }
+  // start with first value of an array
 }, movements[0]); // 0 wouldn't work if we have first value as negative
 
 console.log(maxValue);
