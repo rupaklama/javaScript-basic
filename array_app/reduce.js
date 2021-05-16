@@ -36,6 +36,7 @@ const totalBalance = movements.reduce((acc, cur, i, arr) => {
 // All the values of array added together
 console.log(totalBalance); // 3840
 
+// note - We can also do other Stuffs besides Adding values
 // finding maximum value '3000' in an array
 const maxValue = movements.reduce((acc, curr) => {
   if (acc > curr) {
