@@ -22,3 +22,8 @@ console.log(arr4.flat(2)); // going 2 levels deep
 // at the same time which combines MAP & FLAT method into ONE method to boost performance
 // flatMap() - same as map method
 // flatMap() ONLY GOES TO ONE LEVEL DEEP
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(overallBalance2);
