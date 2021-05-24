@@ -20,6 +20,7 @@ console.log(Math.PI * Number.parseFloat('10px') ** 2);
 // RANDOM NUMBERS
 // Math.random() returns a random number between 0 (inclusive), and 1 (exclusive)
 console.log(Math.trunc(Math.random() * 6) + 1); // 1 - 6
+// Math.trunc() function returns the integer part of a number by removing any fractional/decimal digits  - 23.123 = 23
 
 // Converting to Integer
 // In JavaScript, all numbers are floating point. Integers are floating-point numbers without a fraction.
