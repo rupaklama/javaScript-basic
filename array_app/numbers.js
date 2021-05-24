@@ -22,6 +22,7 @@ console.log(23 === 23.0); // true
 console.log(0.1 + 0.2); // 0.30000000000000004 - this result should be 0.3 only, not will all 0s
 // But, javascript simply don't have better way to represent this number
 
+
 // NOTE: just remember you can't do precise scientific calculation with javascript
 console.log(0.1 + 0.2 === 0.3); // false, this should be TRUE but we need to accept the fact
 
