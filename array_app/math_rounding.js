@@ -7,9 +7,11 @@ console.log(Math.sqrt(25)); // 5
 console.log(8 ** (1 / 3)); // 2
 
 // to get Maximum Value - also works with String
+// does Type Coercion
 console.log(Math.max(5, 18, '23', 11, 2)); // 23
 
 // to get Minimum Value
+// does Type Coercion
 console.log(Math.min(5, 18, '23', 11, 2)); // 2
 
 // to calculate area of a circle with radius - 10px
