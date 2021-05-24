@@ -15,7 +15,7 @@ console.log(23 === 23.0); // true
 // to represent in 'base 10' system
 
 // NOTE: Base 10 are basically a numbers from 0 to 9
-// Binary is 'Base 2' which are numbers between 0 to 1
+// Binary is 'Base 2' which are numbers between 0 & 1
 
 // There are certain numbers which are very difficult to represent of base 2 in javascript
 // One example of that is fraction - 0.1, returns weird results like below - infinite fractions
