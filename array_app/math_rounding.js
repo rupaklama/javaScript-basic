@@ -56,7 +56,7 @@ console.log(Math.floor(-23.3)); // -24
 
 // NOTE - Floor is better than Trunc as it works in all kinds of situation like positive & negative numbers
 
-// ROUNDING DECIMALS
+// ROUNDING DECIMALS - Floating Point numbers
 // we have to specify numbers in () & call toFixed method
 // NOTE - toFixed() always returns a STRING NOT a Number
 console.log((2.7).toFixed(0)); // 3 - with 0 decimal places
