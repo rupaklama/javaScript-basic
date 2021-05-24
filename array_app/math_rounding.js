@@ -22,6 +22,16 @@ console.log(Math.PI * Number.parseFloat('10px') ** 2);
 console.log(Math.trunc(Math.random() * 6) + 1); // 1 - 6
 // Math.trunc() function returns the integer part of a number by removing any fractional/decimal digits  - 23.123 = 23
 
+// random integers between two values
+// (max - min) is that Math.random() gives us number between 0 and 1
+// if we multiply that with (max - min) then we get a number between 0 and (max - min)
+// Now, if we add Min to all of this, we get range between MIN & MAX values
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min) + 1) + min;
+
+console.log(randomInt(10, 20));
+
+
 // Converting to Integer
 // In JavaScript, all numbers are floating point. Integers are floating-point numbers without a fraction.
 // Converting a number n to an integer means finding the integer that is “closest” to n
