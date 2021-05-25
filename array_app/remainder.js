@@ -22,3 +22,11 @@ console.log(isEven(514)); // true
 // Whenever the result of the remainder operator is 0 then that means the FIRST NUMBER
 // is completely DIVISIBLE by SECOND ONE
 // THIS IS SOMETHING IMPORTANT TO KNOW IN PROGRAMMING
+
+// test to demo practical use when doing something on NTH TIME
+labelBalance.addEventListener('click', () => {
+  [...document.querySelectorAll('.movements__row')].forEach((row, i) => {
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+    if (i % 3 === 0) row.style.backgroundColor = 'blue';
+  });
+});
