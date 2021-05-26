@@ -12,6 +12,7 @@
 const now = new Date();
 console.log(now);
 
+// NOTE - MONTH IN JAVASCRIPT IS 0 BASED, 0 is january
 // 2. new Date(year, month, day, hours, minutes, seconds, milliseconds)
 // new Date(year, month, ...) creates a new date object with a specified date and time
 console.log(new Date(2021, 1, 24, 3, 54));
