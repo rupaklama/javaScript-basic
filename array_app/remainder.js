@@ -1,8 +1,8 @@
 'use strict';
 
 // remainder / modulus operator (%) returns the remainder after (integer) division
-console.log(6 % 2); // 0
-console.log(6 / 2); // 3 - no remainder or 0, represented this above with modulus operator
+console.log(6 % 2); // 0 - remainder
+console.log(6 / 2); // 3 - quotient
 
 // NOTE: This operator returns the remainder left over when one operand is divided by a second operand.
 // When the first operand is a negative value, the return value will always be negative,
