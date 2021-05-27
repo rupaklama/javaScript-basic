@@ -76,7 +76,9 @@ const formatMovementDate = date => {
   const calcDaysPassed = (date1, date2) =>
     // math.abs to get an absolute value which is to remove negative sign before number
     // so to get positive value
-    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+  
+    // converting in days to find out - today, yesterday, day before yesterday
+    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24)); // to find out in days
 
   // to get date formatted into string like today, yesterday or day before yesterday
   // NOTE: first ROUND ALL THE values above
