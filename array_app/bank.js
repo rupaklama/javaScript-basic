@@ -78,6 +78,7 @@ const formatMovementDate = date => {
     // so to get positive value
   
     // converting in days to find out - today, yesterday, day before yesterday
+    // Math.round because the date might contains time - hours/minutes 
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24)); // to find out in days
 
   // to get date formatted into string like today, yesterday or day before yesterday
