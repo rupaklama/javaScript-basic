@@ -12,7 +12,7 @@ const options = {
   hour: 'numeric',
   minute: 'numeric',
   day: 'numeric',
-  // On month - instead of number or another option is '2-digit'
+  // On month - we can value to be numeric or another option is '2-digit' - returns two digits like 01
   month: 'long', // long returns month's name - February 27
   year: 'numeric', // or '2-digit'
 
