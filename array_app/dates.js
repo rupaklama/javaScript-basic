@@ -100,7 +100,7 @@ const calcDaysPassed = (date1, date2) =>
 const days1 = calcDaysPassed(
   new Date(2037, 3, 4),
   new Date(2037, 3, 14)
-  // when having Hours & Minutes, use Math.round() to round down numbers
+  // NOTE - when having Hours & Minutes, use Math.round() to round down numbers
 );
 console.log(days1); // 10
 
