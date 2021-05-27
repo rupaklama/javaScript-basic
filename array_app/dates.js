@@ -95,12 +95,14 @@ console.log(Number(futureDate)); // 2142274980000 - timestamp in milliseconds
 const calcDaysPassed = (date1, date2) =>
   // math.abs to get an absolute value which is to remove negative sign before number
   // so to get positive value
-  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24); // converting in days
+
+ // NOTE - when having Hours & Minutes, use Math.round() to round down numbers
+  Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24)); // converting in days
 
 const days1 = calcDaysPassed(
   new Date(2037, 3, 4),
   new Date(2037, 3, 14)
-  // NOTE - when having Hours & Minutes, use Math.round() to round down numbers
+  
 );
 console.log(days1); // 10
 
