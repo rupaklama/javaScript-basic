@@ -23,8 +23,7 @@ const options = {
 // NOTE: IN MANY SITUATIONS, IT ACTUALLY DOES NOT MAKE SENSE TO DEFINE MANUALLY BUT
 // INSTEAD TO GET IT SIMPLY FROM THE USER BROWSERS
 
-// In computing, a locale is a set of parameters that defines the user's language,
-// region and any special variant preferences that the user wants to see in their user interface.
+//  Locale is a String that defines the user's language & country eg. 'en-US'
 
 // navigator.language - To get Current Browser's Locale (en-US or others)
 const locale = navigator.language;
