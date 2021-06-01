@@ -3,6 +3,7 @@
 const s1coords = section1.getBoundingClientRect();
 console.log(s1coords); // DOMRect {x: 0, y: 731, width: 753, height: 1932, top: 731, …}
 
+// NOTE - getBoundingClientRect() is relative to the visible window viewport 
 // target event property returns the element that triggered the event
 console.log(e.target.getBoundingClientRect());
 
