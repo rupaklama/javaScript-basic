@@ -63,7 +63,7 @@ for (const day of days) {
   console.log(`On ${day}, we open at ${open}`);
 }
 
-// methods - to check if method exists before we call it
+// Optional Chaining does also work for 'Calling Methods' to check if method exists before we call it
 // ?? nullish operator if method returns null or undefined
 console.log(restaurant.order?.(0, 1) ?? 'Method does not exists'); // ?. - call it if exists
 console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exists');
