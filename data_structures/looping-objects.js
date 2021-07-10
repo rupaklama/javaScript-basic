@@ -45,6 +45,7 @@ properties.forEach(day => console.log(day));
 const values = Object.values(openingHours);
 console.log(values);
 
+// TO LOOP OVER AN ENTIRE OBJECT & To ACCESS KEY & VALUE
 // Entire object - returns a New Array with Key/Value
 const entries = Object.entries(openingHours);
 console.log(entries); // ["thu", {…}]
