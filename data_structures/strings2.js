@@ -39,7 +39,7 @@ console.log(passengerCorrect);
 
 // Check user input EMAIL to compare
 const email = 'hello@jonas.io';
-const loginEmail = ' Hello@Jonas.Io \n';
+const loginEmail = ' Hello@Jonas.Io \n'; // \n - Enter Character
 // firs step to convert in lowercase
 const lowerEmail = loginEmail.toLowerCase();
 // removing white spaces with TRIM method
