@@ -36,7 +36,7 @@ const ascending = movements.sort((a, b) => {
   // NOTE:  A - B (Greater Number - Smaller Number ) is always POSITIVE, so return positive 1
   if (a > b) return 1; // switch order
 
-  // NOTE:  B - A (Smaller Number - Greater Number) is always POSITIVE, so return negative -1
+  // NOTE:  B - A (Smaller Number - Greater Number) is always NEGATIVE, so return negative -1
   // if (b > a) return -1; // keep order
   if (a < b) return -1; // same thing as above - keep order
 });
