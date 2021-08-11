@@ -22,16 +22,14 @@ console.log(movements);
 // let's think of a & b as simply being two consecutive numbers in an array, doesn't matter which ones
 
 // values in an array
-// Here A is greater than B, so we have to return greater than 0 - return > 0 - B, A
+// Here A is greater than B, so we have to return greater than 0 
 // [450, -400] = [a, b]
 
 // NOTE - if we return greater than 0, value 'b' is put before 'a' in the sorted output array
 // if a > b (SWITCH ORDER) return 1
-// return > 0 - B, A
 
 // NOTE - if we return less than 0, value 'a' is sorted before 'b'
-// if a < b (KEEP ORDER) return -1
-// return < 0 - A, B
+// if a < b (KEEP ORDER) return -1// return < 0 - A, B
 
 const ascending = movements.sort((a, b) => {
   // return number here doesn't matter as long it's greater than 0
