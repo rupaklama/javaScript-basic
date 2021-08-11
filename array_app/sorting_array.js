@@ -34,11 +34,11 @@ console.log(movements);
 const ascending = movements.sort((a, b) => {
   // return number here doesn't matter as long it's greater than 0
   // NOTE:  A - B (Greater Number - Smaller Number ) is always POSITIVE, so return positive 1
-  if (a > b) return 1; // switch order
+  if (a > b) return 1; // if we return greater than 0, switch order
 
   // NOTE:  B - A (Smaller Number - Greater Number) is always NEGATIVE, so return negative -1
   // if (b > a) return -1; // keep order
-  if (a < b) return -1; // same thing as above - keep order
+  if (a < b) return -1; // if we return less than 0, keep order
 });
 console.log(ascending);
 
