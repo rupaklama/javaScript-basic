@@ -43,20 +43,20 @@ const ascending = movements.sort((a, b) => {
 console.log(ascending);
 
 // same as above - ascending
-console.log(movements.sort((a, b) => a - b));
 // a - b: if a is greater than b we know its a positive number, return positive number
-// if a is less than b, (a - b) this operation is always be a negative number
+console.log(movements.sort((a, b) => a - b));
 
 // descending order - doing just opposite of ascending in above
 const descending = movements.sort((a, b) => {
   // opposite of ascending in above
-  if (a > b) return -1; // switch order
+  if (a > b) return -1; // keep order
 
-  if (a < b) return 1; // keep order
+  if (a < b) return 1; // switch order
 });
 console.log(descending);
 
 // same as above - descending
+// if a is less than b, (a - b) this operation is always be a negative number
 console.log(movements.sort((a, b) => b - a));
 
 // NOTE: THIS ALSO WORKS FOR STRINGS but not with mix - strings & numbers
