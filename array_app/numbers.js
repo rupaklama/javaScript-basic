@@ -30,6 +30,10 @@ console.log(0.1 + 0.2 === 0.3); // false, this should be TRUE but we need to acc
 console.log(Number('23'));
 console.log(+'23'); // same as above with type coercion
 
+// NOTE - Integers and floats are two different kinds of numerical data.
+// An integer (more commonly called an int) is a number without a decimal point.
+// A float is a floating-point number, which means it is a number that has a decimal place.
+
 // Integer
 // Number.parseInt() method parses a string argument and returns an integer of the specified radix or base
 // The parseInt() function parses a string and returns an integer.
