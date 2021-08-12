@@ -2,6 +2,7 @@
 
 // sqrt() method returns the square root of a number
 console.log(Math.sqrt(25)); // 5
+console.log(25 ** (1 / 2)); // 5
 
 // to calculate CUBIC root
 console.log(8 ** (1 / 3)); // 2
