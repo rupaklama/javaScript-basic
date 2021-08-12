@@ -1,5 +1,10 @@
 'use strict';
 
+// NOTE: JavaScript Numbers are Always 64-bit Floating Point (binary format - compose of 0s & 1s)
+// Just ONE DATA TYPE for all numbers.
+// Out of 64-bits, only 53 bits are use to store the digits themselves,
+// rest store the position of decimals places & signs
+
 // BigInt is introduced in ES 2020
 // BigInt is a special numeric type that provides support for integers of arbitrary length.
 
