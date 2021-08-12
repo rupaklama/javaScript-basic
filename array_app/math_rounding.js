@@ -15,7 +15,7 @@ console.log(Math.max(5, 18, '23', 11, 2)); // 23
 // does Type Coercion
 console.log(Math.min(5, 18, '23', 11, 2)); // 2
 
-// to calculate area of a circle with radius - 10px
+// to calculate the radius of a circle with 10px
 console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
 // RANDOM NUMBERS
