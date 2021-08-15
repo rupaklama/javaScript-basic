@@ -1,7 +1,7 @@
 'use strict';
 
-// javascript has a New Internationalization API to format Numbers & Strings
-// according to different languages. This help support different languages in our app
+// javascript has a New Internationalization API to format Dates, Numbers & Strings
+// according to different languages or users location. This help support different languages in our app
 // for users around the world.
 
 // EXPERIMENTING WITH Internationalization API to format date in US
