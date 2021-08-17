@@ -22,7 +22,8 @@ setTimeout(
 
 console.log('Waiting...');
 
-// NOTE- we can actually CANCEL the TIMER at least until the Time is up
+
+// passing an array as args
 const ingredients = ['mushroom', 'cheese'];
 
 const pizzaTimer = setTimeout(
@@ -30,6 +31,9 @@ const pizzaTimer = setTimeout(
   4000,
   ...ingredients // putting array elements here
 );
+
+
+// NOTE- we can actually CANCEL the TIMER at least until the Time is up
 
 // clearTimeout() method stops the execution of the function specified in setTimeout()
 // clearTimeout() method uses the 'variable' returned from setTimeout()
