@@ -5,6 +5,7 @@ const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
 const c = arr[2];
+console.log(a, b, c) // 2 3 4
 
 // ES6 array destructuring
 // Array destructuring allows you to create new variables using an array item as a value.
@@ -28,21 +29,24 @@ const restaurant = {
 let [first, , second] = restaurant.categories;
 console.log(first, second); // Italian Vegetarian
 
-// re-assigning values of two variables, switching variables
-// [first, second] = [second, first]
-// console.log(first, second)
+// old way of switching variables values
+// let first = second;
+// second = first;
 
-// method accessing array index with destructuring
-// & also receive 2 return values from a function
+// New way of switching variables values with destructuring
+[first, second] = [second, first] // Vegetarian Italian 
+/console.log(first, second) // Vegetarian Italian 
+
+// Here we have 'order' function return an array 
+// and we can destructure the result into different variables 
 const [starter, main] = restaurant.order(2, 0);
-console.log(starter, main);
+console.log(starter, main); // Garlic Bread Pizza
 
-// // nested destructuring
+// nested destructuring
 const nested = [2, 4, [5, 6]];
-// const [i, ,j] = nested;
 const [i, , [j, k]] = nested;
-console.log(i, j, k);
+console.log(i, j, k); // 2 5 6
 
 // setting default values when destructuring
 const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+console.log(p, q, r); // 8 9 1
