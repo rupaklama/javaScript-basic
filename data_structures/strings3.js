@@ -87,8 +87,10 @@ const maskCreditCard = number => {
   return lastFourNumbers.padStart(cardNum.length, '*');
 };
 
-console.log(maskCreditCard(1345267893));
-console.log(maskCreditCard('9329748340340384309')); // also works with string
+console.log(maskCreditCard(1345267893)); // ******7893
+
+// also works with string
+console.log(maskCreditCard('9329748340340384309')); // ***************4309
 
 // NOTE: Repeat () - to repeat same string multiple times
 const message2 = 'Bad weather... All Departures Delayed... ';
@@ -99,4 +101,4 @@ const planesInLine = n => {
 };
 planesInLine(5);
 planesInLine(3);
-planesInLine(12);
+planesInLine(12); // There are 12 planes in line ✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️
