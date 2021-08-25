@@ -35,7 +35,7 @@ const passenger = 'jOnAS'; // should look like this - Jonas
 const passengerLower = passenger.toLowerCase();
 const passengerCorrect =
   passengerLower[0].toUpperCase() + passengerLower.slice(1);
-console.log(passengerCorrect);
+console.log(passengerCorrect); // Jonas
 
 // Check user input EMAIL to compare
 const email = 'hello@jonas.io';
@@ -58,7 +58,7 @@ const priceGB = 'Rs288,97';
 // first arg is the strings that we want to replace
 // second arg is the strings that will replace the first one
 const priceUS = priceGB.replace('Rs', '$').replace(',', '.'); // chaining here
-console.log(priceUS);
+console.log(priceUS); // $288.97
 
 // replacing entire word
 const announcement =
