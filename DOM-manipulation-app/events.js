@@ -9,16 +9,13 @@ const h1 = document.querySelector('h1');
 // now we can listen for the event by adding - addEventListener()
 // 'mouseenter' - is kind a like hover effect in CSS, when mouse enters into certain elements
 
-const alertH1 = () => {
+ // we can also REMOVE Event Handler incase we don't need it anymore after first occurence
+ // To do it, first we need to export a function into a Named Function/Function Expression
+ // h1.removeEventListener('mouseenter', alertH1); 
+ // NOTE - To make event listen/occur ONCE only
+ const alertH1 = () => {
   // event & callback function
-
   alert('addEventListener: Great! You are reading the heading :D');
-
-  // Second, we can also REMOVE Event Handler incase we don't need it anymore
-  // To do it, first we need to export a function into a Named Function/Function Expression
-  // h1.removeEventListener('mouseenter', alertH1); // To make event listen/occur ONCE only
-  // NOTE: removeEventListener DOES NOT HAVE TO BE HERE,
-  // we can anywhere below
 };
 
 // NOTE- addEventListener() is better
@@ -26,6 +23,7 @@ const alertH1 = () => {
 h1.addEventListener('mouseenter', alertH1);
 
 // removeEventListener - in function moving here
+// NOTE - NOW THE EVENT OCCURS ONLY ONCE BEFORE 3s
 setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
 // note - mouse events
