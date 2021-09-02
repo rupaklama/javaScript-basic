@@ -32,12 +32,19 @@ document.querySelector('.nav').addEventListener(
   'click',
   function (e) {
     // e.currentTarget is the element in which event handler is attached
-    console.log('nav bar - parent', e.target, e.currentTarget); // same target element
+    console.log('nav bar - parent', e.target, e.currentTarget); 
+    
+    // NOTE: In an event handler, 'this' keyword points always to the 'Element' on which
+    // the Event Handler is attached - here is the '.nav__link', a tag
     this.style.backgroundColor = randomColor();
+    
+     // note - 'this' keyword & e.currentTarget is exactly the same in any event handler
+    console.log(e.currentTarget === this); // true
+    
+    // STOPPING Event Bubbling with stopPropagation() Event Method
+    // e.stopPropagation();
   },
   // 'true' - now the Event Handler No Longer listen to Bubbling Events instead to CAPTURING Events
-  // NOW, this element '.nav' is first ONE for an Event to pass through as it is going down
-  // because an Event is generated at top of the Document & travels down
   true // be default this value is set to FALSE
 );
 
