@@ -44,6 +44,7 @@ document.querySelector('.nav').addEventListener(
 // first child
 document.querySelector('.nav__links').addEventListener('click', function (e) {
   console.log('nav links - first child', e.target, e.currentTarget); // same target element
+  
   this.style.backgroundColor = randomColor();
 });
 
