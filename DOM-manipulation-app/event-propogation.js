@@ -46,6 +46,7 @@ document.querySelector('.nav').addEventListener(
   },
   // 'true' - now the Event Handler No Longer listen to Bubbling Events instead to CAPTURING Events
   true // be default this value is set to FALSE
+  // NOTE - CAPTURING is rarely use these days
 );
 
 // first child
