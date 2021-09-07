@@ -41,7 +41,7 @@ h1.closest('.header').style.background = 'var(--gradient-secondary)'; // closest
 // NOTE: THIS IS REALLY USEFUL ALL THE TIME
 // also useful when working with Event Delegation
 
-// NOTE- querySelection method finds 'Children' elements no matter how deep in the dom tree
+// NOTE- querySelector method finds 'Children' elements no matter how deep in the dom tree
 // NOTE- Closest method finds 'Parent' no matter elements how far up in the dom tree
 
 // 3. Sideways - siblings: In js, we can access only direct siblings elements- previous & next one
