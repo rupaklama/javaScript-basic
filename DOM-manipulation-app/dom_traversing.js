@@ -50,8 +50,12 @@ h1.closest('.header').style.background = 'var(--gradient-secondary)'; // closest
 console.log(h1.previousElementSibling); // null - since none
 console.log(h1.nextElementSibling); // h4 - direct sibling element comes after it
 
-// To find node elements, not to find html tag elements
-console.log(h1.previousSibling); // text
-console.log(h1.nextSibling);
+// To get all the Children/Sibling elements of One element & style them
+console.log(h1.parentElement.children);
+// to create into an array
+[...h1.parentElement.children].forEach((el) => { 
+  if (el !== h1) {
+    el.style.transform = 'scale(0.5)'
+  }})
 
 // NOTE - USE METHOD ALWAYS TO FIND HTML TAG ELEMENTS
