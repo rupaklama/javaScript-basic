@@ -32,6 +32,7 @@ h1.lastElementChild.style.color = 'orangered';
 console.log(h1.parentNode); // div.header__title
 console.log(h1.parentElement); // same thing as above
 
+// closest() method is a selector just like querySelector to find the Parent element no matter how far up in the DOM Tree
 // closest() method searches up the DOM tree for the closest element which matches a specified CSS selector.
 // It starts at the element itself, then tests the parent, grandparent, and so on until a match is found.
 // If a match is not found, this method returns null.
