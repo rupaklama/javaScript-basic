@@ -24,8 +24,9 @@ console.log(
 // first arg is the left position
 // second arg is the top of section1
 window.scrollTo(
-  s1coords.left + window.pageXOffset, // current position
-  s1coords.top + window.pageYOffset // current scroll
+  // current position + current scroll
+  s1coords.left + window.pageXOffset,
+  s1coords.top + window.pageYOffset
 ); // properties - console.log(s1coords);
 // NOTE- the solution is to add (+ window.pageYOffset) in 's1coords.top' to navigate to it
 
