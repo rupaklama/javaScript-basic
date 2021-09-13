@@ -5,9 +5,11 @@ console.log(s1coords); // DOMRect {x: 0, y: 731, width: 753, height: 1932, top:
 
 // NOTE - getBoundingClientRect() is relative to the visible window viewport 
 // target event property returns the element that triggered the event
+// current click element
 console.log(e.target.getBoundingClientRect());
 
 // get current scroll position
+// vertical & horizontal scroll position after clicking current element
 console.log('Current scroll (x/y)', window.pageXOffset, window.pageYOffset); // vertical & horizontal - 0 338px
 
 // Just to show we can also get height & width of Viewport/window object
