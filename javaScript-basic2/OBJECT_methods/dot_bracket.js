@@ -12,14 +12,14 @@ const rupak = {
 // Using DOT notation/operator
 console.log(rupak.lastName); // Lama
 
-// Using Bracket Notation with Object's property - key
+// Using Bracket Notation with Object's property as a String
 console.log(rupak['lastName']); // Lama
 
 // With Bracket Operator, we can add Any Expression to compute values
 const nameKey = 'Name';
 // string concatenation
-console.log(rupak['first' + nameKey]);
-console.log(rupak['last' + nameKey]);
+console.log(rupak['first' + nameKey]); // Rupak
+console.log(rupak['last' + nameKey]); // Lama
 
 // another example
 const userInput = prompt(
