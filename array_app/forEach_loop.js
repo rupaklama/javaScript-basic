@@ -47,6 +47,8 @@ const currencies = new Map([
 ]);
 
 // Using forEach loop can be use with MAP data structure
+// forEach accepts between one and three arguments, parameters ORDER matters
+// (value, key, map) - similar to an array (item, index, array)
 currencies.forEach((value, key) => {
   console.log(`${key}: ${value}`); // USD: United States dollar
 });
@@ -56,6 +58,9 @@ currencies.forEach((value, key) => {
 // pass in iterable - array
 const currenciesUnique = new Set(['USD', 'GBP', 'RS', 'EURO', 'USD']);
 console.log(currenciesUnique); // {"USD", "GBP", "RS", "EURO"}
+
+// forEach accepts between one and three arguments, parameters ORDER matters
+// (value, key, map) - similar to an array (item, index, array)
 currenciesUnique.forEach((value, _) => {
   // _ is throw away variable as a place holder for key/index, variable that is NOT NEEDED since SET does not have keys/indexes
   console.log(`${value}: ${value}`); // USD: USD
