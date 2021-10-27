@@ -11,6 +11,7 @@ class Person {
   // It is executed automatically when a new object is created
   // It is used to initialize object properties
 
+  // note - The constructor method is a special method for creating and initializing an object created with a class. 
   // initial properties as arguments in the constructor
   constructor(firstName, birthYear) {
     // Person.firstName = firstName - meaning firstName property of Person object is equal to value we receive
