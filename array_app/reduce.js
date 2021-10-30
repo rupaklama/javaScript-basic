@@ -59,6 +59,8 @@ const maxValue = movements.reduce((acc, curr) => {
     return curr;
   }
   // start with first value of an array
-}, movements[0]); // 0 wouldn't work if we have first value as negative
+  // 0 wouldn't work if we have first value as negative when finding minimum value
+  // Always use this syntax when finding max/min value
+}, movements[0]); 
 
 console.log(maxValue);
