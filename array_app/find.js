@@ -1,6 +1,6 @@
 'use strict';
 
-// find() method is to get ONE element in an array that pass a test condition (provided as a function) 
+// find() method is to get FIRST One element in an array that pass a test condition (provided as a function) 
 // find() method executes the function once for each element present in the array
 // If it finds an array element where the function returns a true value,
 // find() returns the value of that array element (and does not check the remaining values)
@@ -31,6 +31,7 @@ const account2 = {
 
 const accounts = [account1, account2];
 
+// NOTE - using find method, we can find an object in our array based on the some property of that object
 //  to Find particular WHOLE Object on matching certain property
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account); // {owner: "Jessica Davis", movements: Array(8), interestRate: 1.5, pin: 2222}
