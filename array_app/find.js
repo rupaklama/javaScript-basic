@@ -8,6 +8,7 @@
 // Note: find() does not execute the function for empty arrays.
 // Note: find() does not change the original array
 // NOTE: find() only returns ELEMENT, NOT A NEW ARRAY
+// NOTE: // Find returns 'undefined' if no match found
 const entries = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // find method loops over an array to retrieve a FIRST element in array that satisfies the condition
