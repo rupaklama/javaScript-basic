@@ -40,7 +40,8 @@ if (restaurant.openingHours && restaurant.openingHours.mon)
 
 // The ?. operator is like the . chaining operator, except that instead of causing an Error if a reference is nullish (null or undefined), 
 // the expression short-circuits with a return value of 'undefined'. 
-// When used with function calls, it returns undefined if the given function does not exist
+// When used with function calls, it returns undefined if the given function does not exist.
+// NOTE - The referece can be Object, Object Properties, Methods & Arrays.
 
 // NOTE: now, above can cause issues when we have deeply nested objects with lots of optional properties
 // es 2020 introduced a great solution for this, a feature call - OPTIONAL CHAINING
