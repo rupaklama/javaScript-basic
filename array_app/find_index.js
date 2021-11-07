@@ -6,8 +6,7 @@
 // Note: findIndex() does not execute the function for array elements without values
 // Note: findIndex() does not change the original array
 
-// NOTE: find() is lot similar to find method which returns an 'Element' &
-// findIndex() method returns the index of the first element
+
 if (
     currentAccount.username === inputCloseUsername.value &&
     currentAccount.pin === Number(inputClosePin.value)
