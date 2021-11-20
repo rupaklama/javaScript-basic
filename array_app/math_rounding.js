@@ -19,7 +19,7 @@ console.log(Math.min(5, 18, '23', 11, 2)); // 2
 console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
 // RANDOM NUMBERS
-// Note - floor() is to round down & trunc() is to remove the fractional part
+// Note - floor() is to round down & trunc() is to remove the fractional part to get exact values
 // Math.random() returns a random number between 0 (inclusive), and 1 (exclusive)
 console.log(Math.trunc(Math.random() * 6) + 1); // 1 - 6
 // Math.trunc() function returns the integer part of a number by removing any fractional/decimal digits  - 23.123 = 23
