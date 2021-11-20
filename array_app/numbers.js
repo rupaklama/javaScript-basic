@@ -83,6 +83,7 @@ console.log(Number.isFinite(23 / 0)); // false
 // NOTE: isFinite() is a best way to check if any value is a NUMBER
 
 // Note: use isInteger() to check if a number is INTEGER
+// NOTE - In JS, Integer are floating point numbers
 console.log(Number.isInteger(23)); // true
 console.log(Number.isInteger(23.0)); // true
 console.log(Number.isInteger(23 / 0)); // false
