@@ -25,6 +25,7 @@ console.log(isEven(514)); // true
 
 // test to demo practical use when doing something on NTH TIME
 labelBalance.addEventListener('click', () => {
+  // creating new array
   [...document.querySelectorAll('.movements__row')].forEach((row, i) => {
     if (i % 2 === 0) row.style.backgroundColor = 'orangered';
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
