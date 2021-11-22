@@ -61,7 +61,7 @@ console.log(new Date().getSeconds());
 // Get the millisecond (0-999)
 console.log(new Date().getMilliseconds());
 
-// The toISOString() method converts a Date object into a STRING, using the ISO standard.
+// The toISOString() method converts a Date object into a STRING UTC format, using the ISO standard.
 // The standard is called ISO-8601 and the format is: YYYY-MM-DDTHH:mm:ss.sssZ
 console.log(new Date().toISOString()); // 2021-02-24T21:27:07.233Z
 
