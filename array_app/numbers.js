@@ -87,3 +87,10 @@ console.log(Number.isFinite(23 / 0)); // false
 console.log(Number.isInteger(23)); // true
 console.log(Number.isInteger(23.0)); // true
 console.log(Number.isInteger(23 / 0)); // false
+
+// Numeric Separators - ES2021
+// Numeric operators applies to numbers or literals allows developers to read them by separating group of digits.
+// _ or underscore symbol is used as a separator
+const diameter = 287_460_0000_000;
+console.log(diameter);
+
