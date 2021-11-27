@@ -98,7 +98,8 @@ const calcDaysPassed = (date1, date2) =>
   // math.abs to get an absolute value which is to remove negative sign before number
   // so to get positive value
 
- // NOTE - when having Hours & Minutes, use Math.round() to round down numbers
+ // NOTE - when having Hours & Minutes with the date like 2021-02-24T21:27:07.233Z, 
+ // use Math.round() to round down numbers
   Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24)); // converting in days
 
 const days1 = calcDaysPassed(
