@@ -30,6 +30,7 @@ console.log(new Date('December 24, 2021')); // Fri Dec 24 2021 00:00:00 GMT-0500
 // Z means UTC (Coordinated Universal Time) with NO time zone & NO daylight savings
 // this will use the browser's time zone and display a date/time as a FULL TEXT STRING
 console.log(new Date('2019-11-01T13:15:33.035Z')); // Fri Nov 01 2019 09:15:33 GMT-0400 (Eastern Daylight Time)
+// note - now we have access to above date & time with methods like getDate(), getTime() etc
 
 console.log('-----------------------------');
 
