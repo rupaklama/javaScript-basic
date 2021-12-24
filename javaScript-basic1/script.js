@@ -85,3 +85,13 @@ console.log(drink);
 // Since Ternary operator is an expression meaning it returns/produces a value 
 // we can use it inside template literals. Place holder takes any Expressions. 
 console.log(`I like to drink ${age >= 21 ? 'wine' : 'water'}.`);
+
+
+/* Type Conversion & Coercion */
+// note - just the '+' operator converts Numbers to Strings & does concatenating when adding numbers to string
+console.log("Hello" + 23); // Hello23
+
+// Note - other Math Operators converts Strings to Numbers on strings operations
+console.log("23" - "10" - 3); // 10
+console.log("23" / "2"); // 11.5
+
