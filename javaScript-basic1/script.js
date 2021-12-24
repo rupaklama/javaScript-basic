@@ -25,7 +25,7 @@ console.log(
 // multi lines old way with special character '\n' means new line
 console.log("Hello, \n world!");
 
-// if else
+// if else - a control structure
 const day = 'friday';
 
 if (day === 'monday') {
@@ -43,7 +43,7 @@ if (day === 'monday') {
   console.log('Not a valid day!');
 }
 
-// Switch statement
+// Switch statement also a control structure
 const day = 'monday';
 
 Switch cases use strict comparison (===)
