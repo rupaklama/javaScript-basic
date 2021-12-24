@@ -1,33 +1,63 @@
-// const day = 'monday';
+"use strict";
 
-// Switch cases use strict comparison (===)
-// switch (day) {
-//   case 'monday': // day === 'monday'
-//     console.log('Plan course structure');
-//     console.log('Go to coding meetup');
-//     break;
-//   case 'tuesday':
-//     console.log('Prepare theory videos');
-//     break;
+const firstName = "Rupak";
+const job = "Developer";
+const birthYear = 1985;
+const year = 2021;
 
-//   case 'wednesday':
-//   case 'thursday':
-//     console.log('Write code examples');
-//     break;
+/* old way */
+const rupak = "I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
+console.log(rupak);
 
-//   case 'friday':
-//     console.log('Record videos');
-//     break;
+/* ES6 - template literals(strings) */
+/* Template literals provide an easy way to Interpolate Variables and Expressions into strings.
+The method is called string interpolation */
+const rupakNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+console.log(rupakNew);
 
-//   case 'saturday':
-//   case 'sunday':
-//     console.log('Enjoy the weekend :D');
-//     break;
+// multi lines strings with es6
+console.log(
+  `Hello,
+    world!
+  `
+);
 
-//   default:
-//     console.log('Not a valid day!');
-// }
+// multi lines old way with special character '\n' means new line
+console.log("Hello, \n world!");
 
+
+// Switch statement
+const day = 'monday';
+
+Switch cases use strict comparison (===)
+switch (day) {
+  case 'monday': // day === 'monday'
+    console.log('Plan course structure');
+    console.log('Go to coding meetup');
+    break;
+  case 'tuesday':
+    console.log('Prepare theory videos');
+    break;
+
+  case 'wednesday':
+  case 'thursday':
+    console.log('Write code examples');
+    break;
+
+  case 'friday':
+    console.log('Record videos');
+    break;
+
+  case 'saturday':
+  case 'sunday':
+    console.log('Enjoy the weekend :D');
+    break;
+
+  default:
+    console.log('Not a valid day!');
+}
+
+// if else
 const day = 'friday';
 
 if (day === 'monday') {
