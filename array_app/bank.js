@@ -236,6 +236,7 @@ const startLogoutTimer = () => {
   // set time to 5 mins
   let time = 300; // starting with 100 seconds = 1.40 mins
 
+  // creating a seprate function to call the setInterval immediately when starts, not after a sec
   const tick = () => {
     // Divide the number of seconds by 60 to convert seconds to minutes
     const min = String(Math.trunc(time / 60)).padStart(2, 0); // to add 0 at front 0:
