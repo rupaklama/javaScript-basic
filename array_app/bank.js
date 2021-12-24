@@ -257,6 +257,7 @@ const startLogoutTimer = () => {
       containerApp.style.opacity = 0;
     }
 
+    // note - this needs to be done after checking above if time === 0 to avoid bug
     // decrease timer by 1 sec
     // time = time - 1;
     time--;
