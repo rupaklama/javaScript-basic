@@ -25,6 +25,14 @@ console.log(
 // multi lines old way with special character '\n' means new line
 console.log("Hello, \n world!");
 
+// 5 falsy values: 0, '', undefined, null, NaN
+// note - falsy values are values not exactly false but will become False when converted into Booleans
+console.log(Boolean(0)); // false
+console.log(Boolean("")); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(null)); // false
+console.log(Boolean(NaN)); // false
+
 // if else - a control structure
 const day = 'friday';
 
