@@ -67,7 +67,7 @@ if (day === 'monday') {
 // Switch statement also a control structure
 const day = 'monday';
 
-Switch cases use strict comparison (===)
+// NOTE - Switch cases use strict comparison (===)
 switch (day) {
   case 'monday': // day === 'monday'
     console.log('Plan course structure');
