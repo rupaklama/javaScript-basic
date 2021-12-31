@@ -33,6 +33,19 @@ console.log(Boolean(undefined)); // false
 console.log(Boolean(null)); // false
 console.log(Boolean(NaN)); // false
 
+
+/* Logical (!) Not Operator */
+const hasDriversLicense = true;
+const hasGoodVision = true;
+const isTired = false;
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log("I am able to drive!");
+} else {
+  console.log("Someone else should drive...");
+}
+
+
 // if else - a control structure
 const day = 'friday';
 
