@@ -1,6 +1,8 @@
 // for debugging - displays errors in the console
 'use strict';
 
+// note - Function is just a reusable piece of code store in a global variable.
+
 // NOTE: ARROW FUNCTION
 const name = 'Rupak';
 
