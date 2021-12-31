@@ -22,18 +22,24 @@ const calcAgeArrow = (birthYear) => {
 }
 calcAgeArrow(1985)
 
-// object
-const rupak = {
-  year: 1985,
-  calcAge: function() {
-    // when call inside Class method, 'this' refers to an Object
-    // console.log(this);
-    console.log(2021 - this.year); // same as rupak.year
+// Arrow with Object
+const name = "Rupak";
 
-  }
-}
-
-rupak.calcAge()
+let me = {
+  name: "Ashutosh Verma",
+  thisInArrow: () => {
+    // console.log("My name is " + this.name); - adding 'this' here, no Variable will be found or value,
+    // also no errors thrown
+    console.log("My name is " + name); // no binding of 'this' here to the Object
+    // NOTE - ES6 arrow function can't be bound with a 'this' keyword,
+    // so it will Lexically go up a scope & find the value
+  },
+  thisInRegular() {
+    console.log("My name is " + this.name); // 'this' binding works here
+  },
+};
+me.thisInArrow(); // Rupak
+me.thisInRegular(); // Ashutosh Verma
 
 
 
