@@ -1,15 +1,16 @@
 'use strict';
 
-// window object
+// 'this' here refers to Window object when in the Global Scope
 console.log(this);
 
-// regular function 
-const calcAge = function(birthYear){
+// regular function
+const calcAge = function (birthYear) {
   console.log(2021 - birthYear);
   console.log(this);
-  // in strict mode, 'this' will refer to undefined else window object normally
-}
-calcAge(1985)
+  // in strict mode, 'this' will refer to undefined when in the Local Scope
+};
+calcAge(1985);
+
 
 // arrow function
 const calcAgeArrow = (birthYear) => {
