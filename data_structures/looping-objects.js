@@ -36,13 +36,13 @@ const restaurant = {
 // We can also loop over Objects in a non-direct way
 // Note - All the Object Methods(keys, values & entries) returns a New Array. 
 
-// Looping over property names with are KEYS - returns a New Array
+// Object.keys - a new array with Properties
 const properties = Object.keys(openingHours);
 console.log(`We are open on ${properties.length} days`);
 
 properties.forEach(day => console.log(day));
 
-// property values - returns a New Array
+// Object.values - a new array with property values 
 const values = Object.values(openingHours);
 console.log(values);
 
