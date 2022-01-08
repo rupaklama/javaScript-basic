@@ -34,6 +34,7 @@ const restaurant = {
 };
 
 // We can also loop over Objects in a non-direct way
+// Note - All the Object Methods(keys, values & entries) returns a New Array. 
 
 // Looping over property names with are KEYS - returns a New Array
 const properties = Object.keys(openingHours);
