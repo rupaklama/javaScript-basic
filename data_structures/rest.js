@@ -38,8 +38,7 @@ const restaurant = {
 
 // NOTE - Rest Pattern exactly looks like Spread Operator same syntax with (...) except 
 // but it actually does the OPPOSITE of spread operator. 
-// Spread operator is to UNPACK an array to join or create a new array
-// while Rest operator is to PACK elements into a New array. 
+// Spread operator is to UNPACK an array while Rest operator is to PACK elements into a New array. 
 
 // SPREAD, on RIGHT hand side of the assignment (=)
 const arr = [1, 2, ...[3, 4]];
