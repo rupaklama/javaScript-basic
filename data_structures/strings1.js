@@ -31,6 +31,7 @@ console.log('NEP73'[0]); // "N"
 
 // Length property of string
 console.log(airline.length); // 16
+console.log("NEP73".length); // 5
 
 // NOTE: Strings also have methods like an array
 // some of them are quite similar to an array methods
