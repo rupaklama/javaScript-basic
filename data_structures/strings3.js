@@ -30,6 +30,9 @@ console.log('Rupak Lama'.split(' ')); // ' ' space - ["Rupak", "Lama"]
 const [firstName, lastName] = 'Rupak Lama'.split(' '); // ' '
 console.log(firstName, lastName); // Rupak Lama
 
+// To get the first array element after split
+console.log("Indira Rai".split(" ")[0]);
+
 // JOIN method is OPPOSITE of Split
 // join() method is used to join the elements of an array into a string.
 // The elements of the string will be separated by a specified separator and its default value is a comma(, )
