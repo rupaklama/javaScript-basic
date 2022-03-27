@@ -31,8 +31,12 @@ console.log(movements);
 // NOTE - if we return less than 0, value 'a' is sorted before 'b'
 // if a < b (KEEP ORDER) return -1
 
-// if return > 0 then B is before A - ascending, switch order
-// if return < 0 then A is before B - descending, keep order
+// ascending order 
+// if return > 0 then B is before A - switch order
+// if return < 0 then A is before B - keep order
+
+// descending order
+// opposite of ascending in above
 
 const ascending = movements.sort((a, b) => {
   // return number here doesn't matter as long it's greater than 0
