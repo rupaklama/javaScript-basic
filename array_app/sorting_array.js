@@ -55,7 +55,7 @@ console.log(movements.sort((a, b) => a - b));
 
 // descending order - doing just opposite of ascending in above
 const descending = movements.sort((a, b) => {
-  // opposite of ascending in above
+  // opposite of ascending above in the 'return' statement
   if (a > b) return -1; // keep order
 
   if (a < b) return 1; // switch order
