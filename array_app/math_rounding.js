@@ -29,7 +29,8 @@ console.log(Math.trunc(Math.random() * 6) + 1); // 1 - 6
 // if we multiply that with (max - min) then we get a number between 0 and (max - min)
 // Now, if we add Min to all of this, we get range between MIN & MAX values
 const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min) + 1) + min;
+// Math.floor does rounding, we don't want to do rounding 
+  Math.trunc(Math.random() * (max - min) + 1) + min;
 
 console.log(randomInt(10, 20));
 
