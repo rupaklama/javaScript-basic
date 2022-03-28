@@ -29,8 +29,9 @@ console.log(Math.trunc(Math.random() * 6) + 1); // 1 - 6
 // if we multiply that with (max - min) then we get a number between 0 and (max - min)
 // Now, if we add Min to all of this, we get range between MIN & MAX values
 const randomInt = (min, max) =>
-// Math.floor does rounding, we don't want to do rounding 
-  Math.trunc(Math.random() * (max - min) + 1) + min;
+// Math.trunc don't do rounding
+// NOTE - Floor is better than Trunc as it works in all kinds of situation like positive & negative numbers
+  Math.floor(Math.random() * (max - min) + 1) + min;
 
 console.log(randomInt(10, 20));
 
@@ -57,7 +58,7 @@ console.log(Math.floor(23.9)); // 23
 console.log(Math.trunc(-23.3)); // -23 // trunc basically removes the fractional part
 console.log(Math.floor(-23.3)); // -24
 
-// NOTE - Floor is better than Trunc as it works in all kinds of situation like positive & negative numbers
+
 
 // ROUNDING DECIMALS - Floating Point numbers
 // we have to specify numbers in () & call toFixed method
