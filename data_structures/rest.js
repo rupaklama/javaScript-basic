@@ -64,6 +64,7 @@ const { sat, ...weekdays} = restaurant.openingHours;
 console.log(weekdays);
 
 
+// note - Rest syntax can be used as the Only parameter or as the Last parameter in the list
 // 2. FUNCTION
 // this function should take many args as needed
 // add(2, 3)
