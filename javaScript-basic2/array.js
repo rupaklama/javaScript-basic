@@ -42,3 +42,34 @@ console.log(rupak);
 // to also find out if the element is in the array or not
 // returns -1 if the element is not in array by default
 console.log(rupak.indexOf('Lama'));
+
+// Array methods since an array is an object
+const arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE
+// slice is to get portion of original array without mutating original array
+console.log(arr.slice(2)); // ['c', 'd', 'e']
+console.log(arr.slice(2, 4)); // ['c', 'd']
+console.log(arr.slice(-2)); // ['d', 'e']
+console.log(arr.slice(1, -1)); // ['b', 'c', 'd']
+
+// simply to make a shallow copy of an array like with Spread Operator
+console.log(arr.slice()); // ['a', 'b', 'c', 'd', 'e']
+
+// SPLICE
+// to remove an element which does mutate original array
+// console.log(arr.splice(-1)); // ['e'] removing last element
+console.log(arr.splice(1, 2)); // second arg 2 is how many items to delete - ['b', 'c']
+console.log(arr); // ['a', 'd', 'e'] - original array
+
+// REVERSE - mutates original array
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse()); // ['f', 'g', 'h', 'i', 'j']
+
+// CONCAT - to join array like with Spread Operator to create a new array
+const letters = arr.concat(arr2);
+console.log(letters);
+
+// JOIN - a new string, based on separator string
+console.log(letters.join(' - '));
+
