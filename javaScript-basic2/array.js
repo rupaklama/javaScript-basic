@@ -73,3 +73,15 @@ console.log(letters);
 // JOIN - a new string, based on separator string
 console.log(letters.join(' - '));
 
+// At method
+// Use the at() method to return an element of an array by an index.
+// The at() method with a negative index will return an element from the end of the array.
+const arr3 = [23, 11, 64];
+console.log(arr3[0]); // 23
+console.log(arr3.at(0)); // 23 same as above but new way
+
+console.log(arr3[arr3.length - 1]); // 64
+console.log(arr3.slice(-1)[0]); // 64
+console.log(arr3.at(-1)); // 64 same as above but new way
+
+
