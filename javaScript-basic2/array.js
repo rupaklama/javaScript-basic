@@ -80,8 +80,12 @@ const arr3 = [23, 11, 64];
 console.log(arr3[0]); // 23
 console.log(arr3.at(0)); // 23 same as above but new way
 
+// common use case
 console.log(arr3[arr3.length - 1]); // 64
 console.log(arr3.slice(-1)[0]); // 64
 console.log(arr3.at(-1)); // 64 same as above but new way
 
+// at() method also works on String
+console.log('rupak'.at(0)); // r
+console.log('rupak'.at(-1)); // k
 
