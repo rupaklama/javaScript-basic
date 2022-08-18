@@ -7,6 +7,9 @@ console.log(25 ** (1 / 2)); // 5
 // to calculate CUBIC root
 console.log(8 ** (1 / 3)); // 2
 
+// Raises 2 to the 5th power
+Math.pow(2, 5) // 32
+
 // to get Maximum Value - also works with String
 // does Type Coercion
 console.log(Math.max(5, 18, '23', 11, 2)); // 23
