@@ -49,6 +49,13 @@ console.log(arraySplice); // ["a", "b"]
 // ONE COMMON practice is to simply delete last element in an array
 console.log(arraySplice.splice(-1)); // ["a", "b", "c", "d"]
 
+// adding item at specified index
+charArr.splice(1, 0, 'a'); // make sure the delete count to be equal to 0
+console.log(charArr); // ['a', 'a', 'b', 'c', 'd', 'e']
+
+// NOTE - WE CAN ALSO DELETE AND REPLACE WITH SPLICE
+console.log(charArr.splice(2, 2, 'B', 'B')); // ['a', 'a', 'B', 'B', 'd', 'e']
+
 // REVERSE method - reverse() method reverses the order of the elements in an array
 // Note: this method will CHANGE the original array
 let arrayReverse = ['a', 'b', 'c', 'd', 'e'];
