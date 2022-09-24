@@ -12,6 +12,13 @@
 
 // class declaration
 class Person {
+  
+  // ES6 features - we can declare variables inside of a class as a default object properties
+  //  Player {score: 0, numLives: 10, first: 'blue', last: 'steele'}
+  // INITIAL DEFAULT VALUES
+  score = 0;
+  numLives = 10;
+  
   // first thing we need to do is to add a CONSTRUCTOR method of this class
   // It is executed automatically when a new object is created
   // It is used to initialize object properties
