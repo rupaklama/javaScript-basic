@@ -12,13 +12,6 @@
 
 // class declaration
 class Person {
-  
-  // ES6 features - we can declare variables inside of a class as a default object properties
-  //  Player {score: 0, numLives: 10, first: 'blue', last: 'steele'}
-  // INITIAL DEFAULT VALUES
-  score = 0;
-  numLives = 10;
-  
   // first thing we need to do is to add a CONSTRUCTOR method of this class
   // It is executed automatically when a new object is created
   // It is used to initialize object properties
@@ -60,5 +53,74 @@ console.log(indira);
 // Prototype helps optimize performance since each object can access properties and methods from its prototype
 // instead of listing on them again. 
 indira.calcAge();
+
+// Another Example
+class Player {
+  // constructor is to create and initialize object properties
+  // super() method in the constructor method is to call the parent's constructor method
+  // and gets access to the parent's properties and methods:
+
+  // ES6 features - we can declare variables inside of a class as a default object properties
+  //  Player {score: 0, numLives: 10, first: 'blue', last: 'steele'}
+  // INITIAL DEFAULT VALUES
+
+  // private field/property - should be only use/accessible inside of this Class only
+  // to stop changing/reassigning it's value from other Class Instances
+  #score = 0;
+  #numLives = 10;
+
+  // first thing, we need to do is add a Constructor method
+  // Constructor is actually a method of this class
+  constructor(first, last) {
+    this.first = first;
+    this.last = last;
+
+    // calling private method inside this class
+    this.#taunt();
+  }
+
+  // getter
+  getScore() {
+    return this.#score;
+  }
+
+  // setter - to update score inside of the class
+  setScore(newScore) {
+    this.#score = newScore;
+  }
+
+  // private method - not accessible in other Class Instances
+  #taunt() {
+    console.log("Yeah");
+  }
+
+  loseLife() {
+    this.numLives -= 1;
+  }
+}
+
+// new object instance
+// Newly created Object also has an access to properties/methods of Class which is a Function
+// and Function is an Object in javaScript.
+// Prototypal Inheritance - inheriting from One Object from Another Object - Class Object here
+const player1 = new Player("blue", "steele");
+
+console.log(player1);
+
+console.log(player1.numLives);
+player1.loseLife();
+console.log(player1.numLives);
+
+// get score
+console.log(player1.getScore());
+
+// set score
+console.log(player1.setScore(10));
+
+// get new score
+console.log(player1.getScore());
+
+console.log(player1);
+
 
 
