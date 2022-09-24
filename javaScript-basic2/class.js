@@ -2,6 +2,11 @@
 // Javascript is not a class based language but a prototype based language. 
 // JavaScript is an object-based language based on prototypes, rather than being class-based.
 
+// NOTE - Every Functions in a javaScript automatically have a property - 'Prototype' 
+// & Constructor Function is one of it. With Prototype property, we can make copy of Methods & Properties and reuse it.
+// Now, Every Object created by Certain Constructor Function will get access to all 
+// the methods and properties defined in Constructor Prototype Property.
+
 // class expression
 // const Person = class {}
 
