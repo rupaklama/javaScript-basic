@@ -54,24 +54,34 @@ console.log(indira);
 // instead of listing on them again. 
 indira.calcAge();
 
-// Another Example
+
+
+// another example
 class Player {
   // constructor is to create and initialize object properties
-  // super() method in the constructor method is to call the parent's constructor method
-  // and gets access to the parent's properties and methods:
 
   // ES6 features - we can declare variables inside of a class as a default object properties
   //  Player {score: 0, numLives: 10, first: 'blue', last: 'steele'}
   // INITIAL DEFAULT VALUES
+
+  // A public variable is accessible from anywhere (well, anywhere where the class is accessible).
+
+  // A private variable is only accessible inside the class.
+
+  // A static variable belongs to the class rather than to an instance of a class.
 
   // private field/property - should be only use/accessible inside of this Class only
   // to stop changing/reassigning it's value from other Class Instances
   #score = 0;
   #numLives = 10;
 
+  // static property
+  static description = "only exists on this class only, not on the class instances";
+
   // first thing, we need to do is add a Constructor method
   // Constructor is actually a method of this class
   constructor(first, last) {
+    // These values can be reassigned here
     this.first = first;
     this.last = last;
 
@@ -79,14 +89,33 @@ class Player {
     this.#taunt();
   }
 
-  // getter
-  getScore() {
+  // getter method - to define a getter method to get the property value
+  get fullName() {
+    return `${this.first} ${this.last}`;
+  }
+  get score() {
     return this.#score;
   }
 
-  // setter - to update score inside of the class
-  setScore(newScore) {
+  // setter method -  to define a setter method to set the property value
+  set score(newScore) {
+    if (newScore < 0) {
+      throw new Error("Score must be positive");
+    }
     this.#score = newScore;
+  }
+
+  set fullName(newName) {
+    const [first, last] = newName.split(" ");
+    this.first = first;
+    this.last = last;
+  }
+
+  // Static class methods are defined on the class itself.
+  // You cannot call a static method on an object instance, only on this object class
+  // note - you have static method to create certain functionality related to this class only - helper method
+  static randomPlayer() {
+    new Player("me", "you");
   }
 
   // private method - not accessible in other Class Instances
@@ -99,26 +128,33 @@ class Player {
   }
 }
 
+// inheritance - one class extends another
+class AdminPlayer extends Player {
+  isAdmin = true;
+
+  constructor(powers) {
+    // super() method in the constructor method is to call the parent's constructor method
+    // and gets access to the parent's properties and methods:
+    super();
+
+    this.powers = powers;
+  }
+}
+const admin = new AdminPlayer(["delete", "restore"]);
+
 // new object instance
 // Newly created Object also has an access to properties/methods of Class which is a Function
 // and Function is an Object in javaScript.
 // Prototypal Inheritance - inheriting from One Object from Another Object - Class Object here
-const player1 = new Player("blue", "steele");
+const player1 = new Player("Rupak", "Lama");
 
-console.log(player1);
+// calling Getter methods as if a class property that we defined
+console.log(player1.fullName);
+console.log(player1.score);
 
-console.log(player1.numLives);
-player1.loseLife();
-console.log(player1.numLives);
-
-// get score
-console.log(player1.getScore());
-
-// set score
-console.log(player1.setScore(10));
-
-// get new score
-console.log(player1.getScore());
+// setter method to set value
+player1.score = 10;
+player1.fullName = "Indira Rai";
 
 console.log(player1);
 
