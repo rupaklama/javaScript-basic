@@ -196,6 +196,25 @@ for (let i = 0; i < gameBoard.length; i++) {
 
 console.log(totalScore);
 
+
+// better than above 
+const score = [
+  [2, 7, 6],
+  [9, 5, 1],
+];
+
+// much cleaner with for of loop
+for (let row of score) {
+  let sum = 0;
+
+  for (let num of row) {
+    sum += num;
+  }
+
+  console.log(`${row} summed to ${sum}`);
+}
+
+
 console.log('--------------------------------------------');
 
 let j = 0;
