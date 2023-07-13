@@ -8,6 +8,14 @@
 const owners = ['Rupak', 'Indira', 'Sajina', 'Deepak'];
 console.log(owners.sort()); // ["Deepak", "Indira", "Rupak", "Sajina"]
 
+// The localeCompare() method compares two strings in the current locale.
+// The localeCompare() method returns sort order -1, 1, or 0 (for before, after, or equal).
+// The current locale is based on the language settings of the browser.
+const  data = ['t', 'A', 'a', 'B', 'b']
+// strings in alphabetical and ascending order
+data.sort((a, b) => a.localeCompare(b)); // ['a', 'A', 'b', 'B', 't']
+
+
 // Numbers
 // However, if numbers are sorted as strings, the sort() method will produce an incorrect result when sorting numbers.
 // The reason is sort() does the sorting based on STRINGS, first converts everything to string & does sorting
@@ -15,6 +23,7 @@ console.log(owners.sort()); // ["Deepak", "Indira", "Rupak", "Sajina"]
 
 // array.sort(compareFunction)
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
 console.log(movements);
 
 // with callback COMPARE function
