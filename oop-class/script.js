@@ -48,7 +48,8 @@ class Person {
   // passing arguments basically for the properties that we want the object to have
   constructor(fullName, birthYear) {
     // this keyword is set to current Person Object & to also newly created empty object
-    this.fullName = fullName;
+    // '_' meaning private property/field (older approach), don't mutate or access directly instead use getter or setter to do so
+    this._fullName = fullName; 
     this.birthYear = birthYear;
   }
 
@@ -69,34 +70,33 @@ class Person {
     console.log(this.#id);
   }
 
+  // Setter sets a value as a property on calling the method
   // Setter function to validate data to check if it's actually a full name on fullName property
   // Here, we are creating Setter Function with a property name which is already exists in Class
   // Now each time when 'fullName' property gets executed above, so whenever we set a 'fullName' on 'this' keyword
   // then this Setter Function going to be executed and this will override the property
-  set fullName(name) {
+  set setFullName(name) {
     // NOTE - need to add _ before fullName since the Setter is setting the property
     // Convention to avoid Naming conflict, creating new variable property '_fullName'
     if (name.includes(' ')) this._fullName = name;
     else alert(`${name} is not a full name!`);
   }
 
-  // To also access original 'fullName' property with current value
-  get fullName() {
+  // Getter gets a value store in a property on calling the method
+  get getFullName() {
     return this._fullName;
   }
 }
 
 // new Person object
 const rupak = new Person('Rupak Lama', 1985);
-console.log(rupak);
+console.log(rupak.getFullName); // getter -  note: getter & setter is set as a property in class, not a method
+console.log(rupak.setFullName = 'dang dang');
 
 // Newly created Object also has an access to properties/methods of Class which is a Function
 // and Function is an Object in javaScript.
 // Prototypal Inheritance - inheriting from One Object from Another Object - Class Object here
 rupak.calcAge();
-
-// calling Getter method
-console.log(rupak.age);
 
 // is 'rupak' object prototype of Person object
 console.log(rupak.__proto__ === Person.prototype); // true
