@@ -32,6 +32,20 @@ console.log(new Date('December 24, 2021')); // Fri Dec 24 2021 00:00:00 GMT-0500
 console.log(new Date('2019-11-01T13:15:33.035Z')); // Fri Nov 01 2019 09:15:33 GMT-0400 (Eastern Daylight Time)
 // note - now we have access to above date & time with methods like getDate(), getTime() etc
 
+const timestamp = '2024-10-12T17:30:31.967Z';
+const date = new Date(timestamp);
+
+const year = date.getUTCFullYear();
+const month = date.getUTCMonth() + 1; // Months are zero-based
+const day = date.getUTCDate();
+const hours = date.getUTCHours();
+const minutes = date.getUTCMinutes();
+const seconds = date.getUTCSeconds();
+const milliseconds = date.getUTCMilliseconds();
+
+console.log(`UTC Time: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`);
+// Output: UTC Time: 2024-10-12 17:30:31.967
+
 console.log('-----------------------------');
 
 // NOTE: JavaScript Get Date Methods
